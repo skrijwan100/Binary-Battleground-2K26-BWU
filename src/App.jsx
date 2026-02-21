@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { ChevronDown, Trophy, Terminal, Calendar, ShieldAlert, Cpu, Code2, Globe, Users, Zap, ExternalLink, Github, Twitter, Linkedin, Menu, X } from 'lucide-react';
 import bwu from "./assets/bwulogo.png"
 import Countdown from './components/Countdown';
+import Team from './components/Team';
+import Gallery from './components/Gallery';
 // Fallback for the BWU logo to ensure the code runs here. 
 // Replace this with: import bwu from "./assets/bwulogo.png" in your local project.
 
@@ -161,23 +163,23 @@ const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
     let particles = [];
-    
+
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
 
     // 3D Sphere generation
     const nodeCount = window.innerWidth < 768 ? 75 : 150; // Less particles on mobile for performance
     const radius = Math.min(canvas.width, canvas.height) * 0.4;
-    
+
     for (let i = 0; i < nodeCount; i++) {
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos((Math.random() * 2) - 1);
-      
+
       particles.push({
         x3d: radius * Math.sin(phi) * Math.cos(theta),
         y3d: radius * Math.sin(phi) * Math.sin(theta),
@@ -201,7 +203,7 @@ const ParticleBackground = () => {
     const render = () => {
       ctx.fillStyle = 'rgba(3, 3, 3, 0.2)'; // Trailing effect
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      
+
       rotationX += 0.002 + mouseY;
       rotationY += 0.003 + mouseX;
 
@@ -212,14 +214,14 @@ const ParticleBackground = () => {
         // Rotate X
         let y1 = p.y3d * Math.cos(rotationX) - p.z3d * Math.sin(rotationX);
         let z1 = p.y3d * Math.sin(rotationX) + p.z3d * Math.cos(rotationX);
-        
+
         // Rotate Y
         let x2 = p.x3d * Math.cos(rotationY) + z1 * Math.sin(rotationY);
         let z2 = -p.x3d * Math.sin(rotationY) + z1 * Math.cos(rotationY);
-        
+
         const fov = 400;
         const scale = fov / (fov + z2);
-        
+
         const xProj = (x2 * scale) + (canvas.width / 2);
         const yProj = (y1 * scale) + (canvas.height / 2);
 
@@ -236,7 +238,7 @@ const ParticleBackground = () => {
           const dx = projectedNodes[i].x - projectedNodes[j].x;
           const dy = projectedNodes[i].y - projectedNodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (dist < 80 * projectedNodes[i].scale) {
             const opacity = (1 - (dist / (80 * projectedNodes[i].scale))) * 0.3;
             ctx.strokeStyle = `rgba(0, 255, 0, ${opacity})`;
@@ -278,11 +280,11 @@ const ParticleBackground = () => {
 
 const TypewriterText = ({ text, delay = 0 }) => {
   const [displayText, setDisplayText] = useState('');
-  
+
   useEffect(() => {
     let timeout;
     let currentIndex = 0;
-    
+
     const startTyping = () => {
       timeout = setInterval(() => {
         if (currentIndex <= text.length) {
@@ -304,8 +306,8 @@ const TypewriterText = ({ text, delay = 0 }) => {
   return (
     <span className="font-mono text-green-400">
       {displayText}
-      <motion.span 
-        animate={{ opacity: [1, 0] }} 
+      <motion.span
+        animate={{ opacity: [1, 0] }}
         transition={{ repeat: Infinity, duration: 0.8 }}
         className="inline-block w-2 h-5 sm:h-6 bg-green-500 ml-1 align-middle"
       />
@@ -358,7 +360,7 @@ const TiltCard = ({ children, className }) => {
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     setRotateX(((y - centerY) / centerY) * -10);
     setRotateY(((x - centerX) / centerX) * 10);
   };
@@ -387,12 +389,12 @@ const TiltCard = ({ children, className }) => {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[76vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
+    <section className="relative min-h-[102vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
       <div className="scanline"></div>
-      
+
       <div className="text-center z-20 max-w-5xl px-4 sm:px-6 relative w-full">
         {/* Floating Code Snippets */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
           className="absolute -top-20 -left-20 font-mono text-xs text-green-500/40 hidden lg:block text-left"
@@ -403,8 +405,8 @@ const HeroSection = () => {
   }
 }`}
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           animate={{ y: [0, 20, 0], opacity: [0.2, 0.5, 0.2] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           className="absolute bottom-10 -right-20 font-mono text-xs text-green-500/40 hidden lg:block text-left"
@@ -428,9 +430,12 @@ const HeroSection = () => {
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 uppercase tracking-tighter text-white leading-[1.2] sm:leading-none flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-y-2 md:gap-x-4 w-full wrap-break-word">
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="Binary">Binary</span>
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="Battlegraound">Battlegraound</span>
-          <span className="glitch-text inline-block" data-text="2026">2026</span>
+          <span className="glitch-text inline-block" data-text="2K26">2K26</span>
         </h1>
-        
+        <div className="h-12 sm:h-8 mb-10 text-5xl sm:text-xl md:text-2xl sm:mt-0 px-4 ">
+          <span className='text-5xl font-bold text-green-500'>13 MARCH</span>
+        </div>
+
         <div className="h-12 sm:h-8 mb-10 text-sm sm:text-xl md:text-2xl mt-4 sm:mt-0 px-4">
           <TypewriterText text='"Code. Compile. Conquer."' delay={1500} />
         </div>
@@ -447,7 +452,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Scroll Indicator */}
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
           className="absolute bottom-4 sm:bottom-10 left-1/2 transform -translate-x-1/2 text-green-500/50 hidden sm:block"
@@ -504,11 +509,11 @@ const AboutSection = () => {
 const TimelineSection = () => {
   const steps = [
     { title: "Registration Opens", date: " February 25, 2026", desc: "Secure your spot in the mainframe." },
-    { title: "Registration Close", date: "Oct 15, 2026", desc: "Register yourself before you miss the date" },
-    { title: "1st Round", date: "Nov 01, 2026", desc: "Warm up your compilers with mock tests." },
-    { title: "Preliminary Round", date: "Nov 15, 2026", desc: "The great filter. Top 100 advance." },
-    { title: "Final Round", date: "Dec 01, 2026", desc: "72 hours of uninterrupted coding." },
-    { title: "Winner Announcement", date: "Dec 05, 2026", desc: "Glory, prizes, and global recognition." }
+    { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
+    { title: "1st Round", date: "March 13", desc: "To Qualify this round you have to score 60+" },
+    { title: "2nd Round", date: "March 13, 2026", desc: "The great filter. Top 10 advance student." },
+    { title: "Final Round", date: "March 13, 2026", desc: "Select top 3 Depend on total score" },
+    { title: "Winner Announcement", date: "March 13, 2026", desc: " Price distribution End closing ceremony" }
   ];
 
   return (
@@ -522,7 +527,7 @@ const TimelineSection = () => {
         <div className="absolute left-4.75 md:left-1/2 top-0 bottom-0 w-0.5 bg-green-900 md:-translate-x-1/2 z-0"></div>
 
         {steps.map((step, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -539,7 +544,7 @@ const TimelineSection = () => {
             </div>
 
             {/* Glowing Node */}
-            <motion.div 
+            <motion.div
               whileInView={{ boxShadow: "0 0 20px 5px rgba(0,255,0,0.5)", backgroundColor: "#00ff00" }}
               viewport={{ once: false, margin: "-50%" }}
               className="w-10 h-10 rounded-full bg-black border-2 border-green-500 absolute left-0 md:left-1/2 transform md:-translate-x-1/2 flex items-center justify-center shrink-0 transition-colors duration-500"
@@ -564,7 +569,10 @@ const TimelineSection = () => {
 
 const RulesSection = () => {
   return (
-    <section className="py-20 sm:py-24 relative z-10 container mx-auto px-4 sm:px-6 flex justify-center">
+    <>
+    <h1 className='text-5xl text-center font-extrabold text-white'>RULE</h1>
+    <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+
       <div className="w-full max-w-4xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -583,7 +591,7 @@ const RulesSection = () => {
               <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
             </div>
           </div>
-          
+
           {/* Terminal Body */}
           <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
             <p className="mb-4 text-gray-500">Initializing environment variables...</p>
@@ -592,18 +600,19 @@ const RulesSection = () => {
               <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
               <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
               <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
-              <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", "Java", "Python"</span>],</li>
+              <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python"</span>],</li>
+              <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
               <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">false</span>,</li>
               <li><span className="text-white">Team_Format:</span> <span className="text-yellow-300">"Individual"</span>,</li>
               <li><span className="text-white">Plagiarism_Check:</span> <span className="text-red-400">"Strict"</span></li>
             </ul>
             <p className="mb-4">{'}'};</p>
-            
+
             <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
             <div className="flex">
               <span className="text-green-500 mr-2">{'>'}</span>
-              <motion.span 
-                animate={{ opacity: [0, 1] }} 
+              <motion.span
+                animate={{ opacity: [0, 1] }}
                 transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
                 className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
               />
@@ -612,14 +621,67 @@ const RulesSection = () => {
         </motion.div>
       </div>
     </section>
+    <section className=" sm:py-24 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+
+      <div className="w-full max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+        >
+          {/* Terminal Header */}
+          <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+            <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+            </div>
+            <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+              <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+            </div>
+          </div>
+
+          {/* Terminal Body */}
+          <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+            <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
+           <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as
+many of the problem statements as possible, on successful satisfaction of all the test cases the
+participants will receive all allotted points for that problem statement. In case of partial
+satisfaction of the test cases, the participants will receive partial points.
+The winners of each round will be determined by the leaderboard positions for that round:
+<br />
+● The top 10 participants from the first round will move on to the second round. <br />
+● The top 5 participants from the second round will move on to the final round. <br />
+● The top 3 participants from the final round will be declared the winners. <br />
+If in any round multiple participants obtain the same number of points, then the tie is broken by
+the total time taken to submit the last solution resulting in higher points. In extreme cases a
+short viva conducted by the coordinators may be used to determine the winner in a tiebreaker.</p> 
+            <p className="mb-4">{'}'};</p>
+
+            <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+            <div className="flex">
+              <span className="text-green-500 mr-2">{'>'}</span>
+              <motion.span
+                animate={{ opacity: [0, 1] }}
+                transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
+                className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
+              />
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+                </>
   );
 };
 
 const PrizesSection = () => {
   const prizes = [
-    { rank: "2nd", title: "Silver Hologram", amount: "$5,000", delay: 0.2, height: "h-48 md:h-64", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
-    { rank: "1st", title: "Gold Hologram", amount: "$10,000", delay: 0, height: "h-56 md:h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
-    { rank: "3rd", title: "Bronze Hologram", amount: "$2,500", delay: 0.4, height: "h-40 md:h-56", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
+    { rank: "2nd", title: "Certificate", amount: "Madal", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
+    { rank: "1st", title: "Winner Certificate", amount: "Winner Medal", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
+    { rank: "3rd", title: "Certificate", amount: "Madal", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
   ];
 
   return (
@@ -642,7 +704,7 @@ const PrizesSection = () => {
           >
             {/* Rising Energy Particles Effect (CSS simulated) */}
             <div className="absolute inset-x-0 bottom-full h-24 sm:h-32 overflow-hidden pointer-events-none hidden sm:block">
-              <motion.div 
+              <motion.div
                 animate={{ y: [0, -100], opacity: [0.8, 0] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
                 className="w-1 h-10 mx-auto rounded-full bg-white shadow-[0_0_10px_white]"
@@ -653,12 +715,14 @@ const PrizesSection = () => {
             <TiltCard className={`w-full flex flex-col items-center justify-start pt-6 sm:pt-8 pb-4 bg-linear-to-t ${prize.color} bg-opacity-10 backdrop-blur-xl border border-white/20 relative overflow-hidden ${prize.height}`}>
               {/* Inner Glow Overlay */}
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/80 z-0"></div>
-              
+
               <div className="relative z-10 text-center">
                 <Trophy size={i === 1 ? 56 : 40} className="mx-auto mb-3 sm:mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] sm:w-auto sm:h-auto w-12 h-12" />
                 <h3 className="text-xl sm:text-2xl font-black text-white mb-1 uppercase tracking-widest">{prize.rank}</h3>
+                <p>Prize</p>
+                <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{prize.amount}</p> 
+                <p>&</p>
                 <p className="text-xs sm:text-sm font-mono text-white/80 mb-2 sm:mb-4">{prize.title}</p>
-                <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{prize.amount}</p>
               </div>
             </TiltCard>
           </motion.div>
@@ -686,7 +750,7 @@ const FaqSection = () => {
 
       <div className="space-y-3 sm:space-y-4">
         {faqs.map((faq, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -727,14 +791,14 @@ const Footer = () => {
     <footer className="relative bg-black pt-16 sm:pt-20 pb-8 sm:pb-10 border-t border-green-500/20 overflow-hidden z-10">
       {/* Cyberpunk Grid Background */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxwYXRoIGQ9Ik0wIDBoNDB2NDBIMHoiIGZpbGw9Im5vbmUiLz4KPHBhdGggZD0iTTAgMGg0MHYxSDB6TTAgMGgxdjQwSDB6IiBmaWxsPSJyZ2JhKDAsIDI1NSwgMCwgMC4wNSkiLz4KPC9zdmc+')] transform-[perspective(500px)_rotateX(60deg)] origin-bottom opacity-50 pointer-events-none"></div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 sm:mb-12">
           <div className="mb-6 md:mb-0 text-center md:text-left w-full md:w-auto">
             <h2 className="text-lg sm:text-xl md:text-2xl font-black text-white uppercase tracking-widest mb-2 glitch-text wrap-break-word" data-text="Bainary Battlegraound">Bainary Battlegraound</h2>
             <p className="text-green-500/70 font-mono text-xs sm:text-sm">Initializing Future Devs_</p>
           </div>
-          
+
           <div className="flex space-x-4 sm:space-x-6">
             {[Github, Twitter, Linkedin].map((Icon, i) => (
               <a key={i} href="#" className="interactive p-2.5 sm:p-3 rounded-full bg-green-900/20 border border-green-500/30 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_15px_#00ff00] transition-all duration-300">
@@ -743,11 +807,11 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        
+
         <div className="text-center pt-6 sm:pt-8 border-t border-green-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs font-mono text-gray-600 gap-y-2">
           <p>&copy; 2026 Bainary Battlegraound. All systems operational.</p>
           <p className="flex items-center">
-            Powered by <ShieldAlert size={12} className="mx-1 text-green-500" /> Brainware University CSS Department 
+            Powered by <ShieldAlert size={12} className="mx-1 text-green-500" /> Brainware University CSS Department
           </p>
         </div>
       </div>
@@ -763,7 +827,7 @@ export default function App() {
       <GlobalStyles />
       <CustomCursor />
       <ParticleBackground />
-      
+
       {/* Sticky Glassmorphic Navbar */}
       <nav className="fixed top-0 w-full z-50 glass-panel border-b-0 border-t-0 border-l-0 border-r-0 py-3 sm:py-4 px-4 sm:px-6">
         <div className="container mx-auto flex justify-between items-center">
@@ -773,7 +837,7 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 font-mono text-sm">
-            {['About', 'Timeline', 'Rules', 'Prizes'].map((item) => (
+            {['About', 'Timeline', 'Rules', 'Prizes','Gallery','Team','FAQ'].map((item) => (
               <a key={item} href="#" className="interactive text-gray-300 hover:text-green-400 transition-colors uppercase relative group">
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
@@ -788,7 +852,7 @@ export default function App() {
           </div>
 
           {/* Mobile Hamburger Toggle */}
-          <button 
+          <button
             className="md:hidden text-green-500 p-2 focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -806,10 +870,10 @@ export default function App() {
               className="md:hidden bg-[#0a1f0a]/95 backdrop-blur-lg border-b border-green-500/30 overflow-hidden absolute top-full left-0 w-full"
             >
               <div className="flex flex-col px-6 py-6 space-y-4 font-mono">
-                {['About', 'Timeline', 'Rules', 'Prizes'].map((item) => (
-                  <a 
-                    key={item} 
-                    href="#" 
+                {['About', 'Timeline', 'Rules', 'Prizes','Gallrey','Team','FAQ'].map((item) => (
+                  <a
+                    key={item}
+                    href="#"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-gray-300 hover:text-green-400 transition-colors uppercase text-sm border-b border-green-500/10 pb-2"
                   >
@@ -827,12 +891,14 @@ export default function App() {
 
       <main>
         <HeroSection />
-        <Countdown/>
+        <Countdown />
         <AboutSection />
         <TimelineSection />
         <RulesSection />
         <PrizesSection />
+        <Gallery/>
         <FaqSection />
+        <Team/>
       </main>
 
       <Footer />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const Countdown = () => {
   // Set target date to March 13, 2026, 00:00:00
-  const TARGET_DATE = new Date('2026-03-13T00:00:00').getTime();
+  const TARGET_DATE = new Date('2026-03-10T00:00:00').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -59,8 +59,8 @@ const Countdown = () => {
         {/* Top Decorative Terminal Text */}
         <div className="mb-8 flex flex-col items-center text-[#00ff00] text-sm sm:text-base tracking-[0.2em] space-y-2 opacity-80">
           <p className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-[#00ff00] rounded-full animate-pulse"></span>
-            SYSTEM.INITIATION.COUNTDOWN
+            <span className="w-2 h-2 text bg-[#00ff00] rounded-full animate-pulse"></span>
+           <span className='text-4xl font-bold'>REGISTRATION CLOSE IN</span> 
           </p>
           <p className="text-xs text-[#00ff00]/50">target_date: "2026-03-13T00:00:00Z"</p>
         </div>
