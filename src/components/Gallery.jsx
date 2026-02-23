@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 import { Terminal, Image as ImageIcon, Maximize2, Lock, Unlock } from 'lucide-react';
+import pic1 from "../assets/pic1.jpg"
+import pic2 from "../assets/pic2.jpg"
+import pic3 from "../assets/pic3.jpg"
+import pic4 from "../assets/pic4.jpg"
+import pic5 from "../assets/pic5.jpg"
+import pic6 from "../assets/pic6.jpg"
 
 // Mock data for the gallery using thematic tech images
 const galleryItems = [
@@ -9,7 +15,7 @@ const galleryItems = [
     type: "IMAGE_DAT", 
     date: "2026.03.11", 
     size: "2.4 MB",
-    url: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800" 
+    url: pic1
   },
   { 
     id: 2, 
@@ -17,7 +23,7 @@ const galleryItems = [
     type: "ARCHIVE", 
     date: "2025.12.04", 
     size: "8.1 MB",
-    url: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=800" 
+    url: pic2
   },
   { 
     id: 3, 
@@ -25,7 +31,7 @@ const galleryItems = [
     type: "VISUAL", 
     date: "2025.11.22", 
     size: "4.7 MB",
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800" 
+    url: pic3
   },
   { 
     id: 4, 
@@ -33,7 +39,7 @@ const galleryItems = [
     type: "SYSTEM", 
     date: "2026.01.15", 
     size: "1.2 MB",
-    url: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" 
+    url: pic4 
   },
   { 
     id: 5, 
@@ -41,7 +47,7 @@ const galleryItems = [
     type: "LOG", 
     date: "2026.02.28", 
     size: "3.5 MB",
-    url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800" 
+    url:pic5
   },
   { 
     id: 6, 
@@ -49,7 +55,7 @@ const galleryItems = [
     type: "MEM_DUMP", 
     date: "2026.03.14", 
     size: "5.9 MB",
-    url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" 
+    url: pic6
   }
 ];
 
@@ -58,7 +64,7 @@ const Gallery= () => {
     <div className="min-h-screen  p-6 sm:p-12 font-mono relative overflow-hidden">
       
       {/* Background ambient glow matching the theme */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#00ff00] rounded-full opacity-[0.02] blur-[150px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-150 h-150 bg-[#00ff00] rounded-full opacity-[0.02] blur-[150px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
@@ -123,35 +129,13 @@ const GalleryCard = ({ item }) => {
           src={item.url} 
           alt={item.title}
           className={`w-full h-full object-cover transition-all duration-700 ease-in-out
-            ${isHovered ? 'scale-110 grayscale-0 opacity-100' : 'scale-100 grayscale mix-blend-luminosity opacity-40'}
+            ${isHovered ? 'scale-105 grayscale-0 opacity-100' : 'scale-100 '}
           `}
         />
 
         {/* Scanline overlay running continuously */}
-        <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,255,0,0.05)_50%)] bg-[length:100%_4px] pointer-events-none opacity-50"></div>
-
-        {/* Center icon that changes on hover */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className={`p-4 rounded-full bg-black/60 border border-[#00ff00]/30 backdrop-blur-sm transition-all duration-300
-            ${isHovered ? 'scale-150 opacity-0' : 'scale-100 opacity-100'}
-          `}>
-            <Lock className="text-[#00ff00]/50" size={24} />
-          </div>
-        </div>
-
-        {/* Overlay Metadata that slides up on hover */}
-        <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6 transition-transform duration-500 ease-in-out
-          ${isHovered ? 'translate-y-0' : 'translate-y-full'}
-        `}>
-          <div className="flex items-center gap-2 text-[#00ff00] mb-2 font-bold tracking-widest">
-            <Unlock size={16} className="animate-pulse" />
-            <span className="text-sm shadow-black drop-shadow-md">ACCESS_GRANTED</span>
-          </div>
-          <div className="flex gap-4 text-white text-xs tracking-wider opacity-80">
-            <span>Size: {item.size}</span>
-            <span>Date: {item.date}</span>
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,255,0,0.05)_50%)]bg-size-[100%_4px] pointer-events-none opacity-50"></div>
+       
 
       </div>
 

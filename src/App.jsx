@@ -5,6 +5,7 @@ import bwu from "./assets/bwulogo.png"
 import Countdown from './components/Countdown';
 import Team from './components/Team';
 import Gallery from './components/Gallery';
+import tech from "./assets/techclub-iic.jpg"
 // Fallback for the BWU logo to ensure the code runs here. 
 // Replace this with: import bwu from "./assets/bwulogo.png" in your local project.
 
@@ -510,7 +511,7 @@ const TimelineSection = () => {
   const steps = [
     { title: "Registration Opens", date: " February 25, 2026", desc: "Secure your spot in the mainframe." },
     { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
-    { title: "1st Round", date: "March 13", desc: "To Qualify this round you have to score 60+" },
+    { title: "1st Round", date: "March 13", desc: "Top 20 player will select for next round." },
     { title: "2nd Round", date: "March 13, 2026", desc: "The great filter. Top 10 advance student." },
     { title: "Final Round", date: "March 13, 2026", desc: "Select top 3 Depend on total score" },
     { title: "Winner Announcement", date: "March 13, 2026", desc: " Price distribution End closing ceremony" }
@@ -570,110 +571,153 @@ const TimelineSection = () => {
 const RulesSection = () => {
   return (
     <>
-    <h1 className='text-5xl text-center font-extrabold text-white'>RULE</h1>
-    <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+      <h1 className='text-5xl text-center font-extrabold text-white'>RULE</h1>
+      <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
-      <div className="w-full max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
-        >
-          {/* Terminal Header */}
-          <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
-            <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+        <div className="w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+          >
+            {/* Terminal Header */}
+            <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+              <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+                <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+              </div>
             </div>
-            <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
-              <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
-            </div>
-          </div>
 
-          {/* Terminal Body */}
-          <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
-            <p className="mb-4 text-gray-500">Initializing environment variables...</p>
-            <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
-            <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-normal">
-              <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
-              <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
-              <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
-              <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python"</span>],</li>
-              <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
-              <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">false</span>,</li>
-              <li><span className="text-white">Team_Format:</span> <span className="text-yellow-300">"Individual"</span>,</li>
-              <li><span className="text-white">Plagiarism_Check:</span> <span className="text-red-400">"Strict"</span></li>
-            </ul>
-            <p className="mb-4">{'}'};</p>
+            {/* Terminal Body */}
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+              <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+              <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
+              <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-normal">
+                <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
+                <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
+                <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
+                <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python"</span>],</li>
+                <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
+                <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">false</span>,</li>
+                <li><span className="text-white">Team_Format:</span> <span className="text-yellow-300">"Individual"</span>,</li>
+                <li><span className="text-white">Plagiarism_Check:</span> <span className="text-red-400">"Strict"</span></li>
+              </ul>
+              <p className="mb-4">{'}'};</p>
 
-            <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
-            <div className="flex">
-              <span className="text-green-500 mr-2">{'>'}</span>
-              <motion.span
-                animate={{ opacity: [0, 1] }}
-                transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
-                className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
-              />
+              <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+              <div className="flex">
+                <span className="text-green-500 mr-2">{'>'}</span>
+                <motion.span
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
+                  className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-    <section className=" sm:py-24 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+          </motion.div>
+        </div>
+      </section>
+      <section className="sm:py-7 relative mb-4  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
-      <div className="w-full max-w-4xl">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
-        >
-          {/* Terminal Header */}
-          <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
-            <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
-              <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+        <div className="w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+          >
+            {/* Terminal Header */}
+            <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+              <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+                <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+              </div>
             </div>
-            <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
-              <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
-            </div>
-          </div>
 
-          {/* Terminal Body */}
-          <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
-            <p className="mb-4 text-gray-500">Initializing environment variables...</p>
-            <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
-           <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as
-many of the problem statements as possible, on successful satisfaction of all the test cases the
-participants will receive all allotted points for that problem statement. In case of partial
-satisfaction of the test cases, the participants will receive partial points.
-The winners of each round will be determined by the leaderboard positions for that round:
-<br />
-● The top 10 participants from the first round will move on to the second round. <br />
-● The top 5 participants from the second round will move on to the final round. <br />
-● The top 3 participants from the final round will be declared the winners. <br />
-If in any round multiple participants obtain the same number of points, then the tie is broken by
-the total time taken to submit the last solution resulting in higher points. In extreme cases a
-short viva conducted by the coordinators may be used to determine the winner in a tiebreaker.</p> 
-            <p className="mb-4">{'}'};</p>
+            {/* Terminal Body */}
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+              <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+              <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
+              <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
+                The winners of each round will be determined by the leaderboard positions for that round:
+                <br />
+                <span className='font-bold text-amber-500'> ●	The top 20 participants from the first round will move on to the second round.</span> <br />
+                <span className='font-bold text-amber-500'>●	The top 10 participants from the second round will move on to the final round.</span> <br />
+                <span className='font-bold text-amber-500'>●	The top 3 participants from the final round will be declared the winners.</span> <br />
 
-            <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
-            <div className="flex">
-              <span className="text-green-500 mr-2">{'>'}</span>
-              <motion.span
-                animate={{ opacity: [0, 1] }}
-                transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
-                className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
-              />
+                If in any round multiple participants obtain the same number of points, then the tie is broken by the total time taken to submit the last solution resulting in higher points. In extreme cases a short viva conducted by the coordinators may be used to determine the winner in a tiebreaker.
+              </p>
+              <p className="mb-4">{'}'};</p>
+
+              <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+              <div className="flex">
+                <span className="text-green-500 mr-2">{'>'}</span>
+                <motion.span
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
+                  className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-                </>
+          </motion.div>
+        </div>
+      </section>
+      <section className=" sm:py-7 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+
+        <div className="w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+          >
+            {/* Terminal Header */}
+            <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+              <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+                <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+              </div>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+              <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+              <p className="mb-2"><span className="text-blue-400">const</span> COMPETITION_FORMAT= {'{'}</p>
+              <p className='text-yellow-300'>The competition will be held through the HackerRank online platform. The participation is restricted to solo participants only and there will be 3 rounds: <br />
+                <span className='text-amber-500'>●	The First round will involve 5 simple difficulty problem statements having 5 points each.</span>  <br />
+                <span className='text-amber-500'>●	The Second round will involve 2 pattern printing and 2 problem statements having 10 points each.</span> <br />
+                <span className='text-amber-500'>●	The Final round will involve 3 hard difficulty string / array/ DSA based problem statement having 20 points.</span>
+
+              </p>
+              <p className="mb-4">{'}'};</p>
+
+              <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+              <div className="flex">
+                <span className="text-green-500 mr-2">{'>'}</span>
+                <motion.span
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
+                  className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 };
 
@@ -720,7 +764,7 @@ const PrizesSection = () => {
                 <Trophy size={i === 1 ? 56 : 40} className="mx-auto mb-3 sm:mb-4 text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)] sm:w-auto sm:h-auto w-12 h-12" />
                 <h3 className="text-xl sm:text-2xl font-black text-white mb-1 uppercase tracking-widest">{prize.rank}</h3>
                 <p>Prize</p>
-                <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{prize.amount}</p> 
+                <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{prize.amount}</p>
                 <p>&</p>
                 <p className="text-xs sm:text-sm font-mono text-white/80 mb-2 sm:mb-4">{prize.title}</p>
               </div>
@@ -734,10 +778,11 @@ const PrizesSection = () => {
 
 const FaqSection = () => {
   const faqs = [
-    { q: "Who can participate?", a: "Any carbon-based lifeform currently enrolled in a university program globally. AI assistants are strictly prohibited." },
-    { q: "Do I need to install any software?", a: "Negative. The entire battlefield is hosted securely on HackerRank's cloud infrastructure. Just bring a browser and logic." },
+    { q: "Who can participate?", a: "The competition is open to all students of BCA and MCA in Brainware University" },
+    { q: "do i have to bring my laptop", a: "No, collage will Provide you Desktop" },
     { q: "Is team participation allowed?", a: "This is a solo mission. Lone wolves only. Team collaborations will flag the anti-cheat system." },
-    { q: "How are the challenges graded?", a: "Automated test cases. Time complexity, space complexity, and optimal logic paths determine your final score." }
+    { q: "How are the challenges graded?", a: "Automated test cases. Time complexity, space complexity, and optimal logic paths determine your final score." },
+    { q: "Is collage provided food for us ?", a: "No, food will be provided." }
   ];
 
   const [openIndex, setOpenIndex] = useState(null);
@@ -800,11 +845,12 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-4 sm:space-x-6">
-            {[Github, Twitter, Linkedin].map((Icon, i) => (
+            <img className='h-16' src={tech} alt="Tech clud" />
+            {/* {[Github, Twitter, Linkedin].map((Icon, i) => (
               <a key={i} href="#" className="interactive p-2.5 sm:p-3 rounded-full bg-green-900/20 border border-green-500/30 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_15px_#00ff00] transition-all duration-300">
                 <Icon size={18} className="sm:w-5 sm:h-5" />
               </a>
-            ))}
+            ))} */}
           </div>
         </div>
 
@@ -837,8 +883,8 @@ export default function App() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8 font-mono text-sm">
-            {['About', 'Timeline', 'Rules', 'Prizes','Gallery','Team','FAQ'].map((item) => (
-              <a key={item} href="#" className="interactive text-gray-300 hover:text-green-400 transition-colors uppercase relative group">
+            {['About', 'Timeline', 'Rules', 'Prizes', 'Gallery', 'Team', 'FAQ'].map((item) => (
+              <a key={item} href={`#${item.toLocaleLowerCase()}`} className="interactive text-gray-300 hover:text-green-400 transition-colors uppercase relative group">
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
@@ -870,10 +916,10 @@ export default function App() {
               className="md:hidden bg-[#0a1f0a]/95 backdrop-blur-lg border-b border-green-500/30 overflow-hidden absolute top-full left-0 w-full"
             >
               <div className="flex flex-col px-6 py-6 space-y-4 font-mono">
-                {['About', 'Timeline', 'Rules', 'Prizes','Gallrey','Team','FAQ'].map((item) => (
+                {['About', 'Timeline', 'Rules', 'Prizes', 'Gallery', 'Team', 'FAQ'].map((item) => (
                   <a
                     key={item}
-                    href="#"
+                    href={`#${item.toLocaleLowerCase()}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-gray-300 hover:text-green-400 transition-colors uppercase text-sm border-b border-green-500/10 pb-2"
                   >
@@ -892,13 +938,34 @@ export default function App() {
       <main>
         <HeroSection />
         <Countdown />
+        <div id='about'>
+
         <AboutSection />
+        </div>
+        <div id='timeline'>
         <TimelineSection />
+
+        </div>
+        <div id='rules'>
+
         <RulesSection />
+        </div>
+        <div id='prizes'>
+
         <PrizesSection />
-        <Gallery/>
+        </div>
+        <div id='gallery'>
+
+        <Gallery />
+        </div>
+        <div id='faq'>
+
         <FaqSection />
-        <Team/>
+        </div>
+        <div id='team'>
+        <Team />
+
+        </div>
       </main>
 
       <Footer />

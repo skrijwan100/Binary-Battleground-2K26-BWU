@@ -83,19 +83,22 @@ const Team = () => {
             <span className="text-xs sm:text-sm tracking-[0.3em] uppercase opacity-80">Execution Context</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-wider uppercase drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">
-            Command_Center
+            Team
           </h2>
           <p className="mt-4 text-[#00ff00]/60 text-sm sm:text-base">
-            {'>'} fetching active operatives... [ {teamMembers.length} found ]
+            {'>'} fetching active operatives... [ 0 found ]
           </p>
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className='text-5xl text-center'>
+          Comming Soon....
+        </div>
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {teamMembers.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
-        </div>
+        </div> */}
 
         {/* Footer decoration */}
         <div className="mt-16 flex justify-center text-[#00ff00]/30 text-xs tracking-widest">
