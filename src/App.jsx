@@ -600,6 +600,7 @@ const RulesSection = () => {
               <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-norma">
                 <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
                 <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
+                <li><span className="text-white">Room No:</span> <span className="text-yellow-300">"UV-6 301 & 302"</span>,</li>
                 <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
                 <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python", "Javascript"</span>],</li>
                 <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
