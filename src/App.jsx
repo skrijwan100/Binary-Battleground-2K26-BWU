@@ -430,7 +430,7 @@ const HeroSection = () => {
         {/* Responsive text sizing instead of vw to prevent horizontal scroll on long words */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 uppercase tracking-tighter text-white leading-[1.2] sm:leading-none flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-y-2 md:gap-x-4 w-full wrap-break-word">
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="Binary">Binary</span>
-          <span className="glitch-text inline-block break-all sm:break-normal" data-text="Battlegraound">Battlegraound</span>
+          <span className="glitch-text inline-block break-all sm:break-normal" data-text="Battleground">Battleground</span>
           <span className="glitch-text inline-block" data-text="2K26">2K26</span>
         </h1>
         <div className="h-12 sm:h-8 mb-10 text-5xl sm:text-xl md:text-2xl sm:mt-0 px-4 ">
@@ -487,9 +487,9 @@ const AboutSection = () => {
         ].map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, z: -100, rotateX: 20 }}
-            whileInView={{ opacity: 1, z: 0, rotateX: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, z: -100, rotateX: 20, scale:0.80 }}
+            whileInView={{ opacity: 1, z: 0, rotateX: 0 , scale:1}}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="h-full"
           >
@@ -532,7 +532,7 @@ const TimelineSection = () => {
             key={i}
             initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.5, type: "spring" }}
             className={`relative z-10 flex flex-col md:flex-row items-start md:items-center mb-10 sm:mb-12 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
           >
@@ -571,14 +571,14 @@ const TimelineSection = () => {
 const RulesSection = () => {
   return (
     <>
-      <h1 className='text-5xl text-center font-extrabold text-white'>RULE</h1>
+      <h1 className='text-5xl text-center font-extrabold text-green-500 '>RULE</h1>
       <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.80 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
           >
             {/* Terminal Header */}
@@ -594,14 +594,14 @@ const RulesSection = () => {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
-              <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-normal">
+              <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-norma">
                 <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
                 <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
                 <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
-                <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python"</span>],</li>
+                <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python", "Javascript"</span>],</li>
                 <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
                 <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">false</span>,</li>
                 <li><span className="text-white">Team_Format:</span> <span className="text-yellow-300">"Individual"</span>,</li>
@@ -626,9 +626,9 @@ const RulesSection = () => {
 
         <div className="w-full max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+               initial={{ opacity: 0, scale: 0.80 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
           >
             {/* Terminal Header */}
@@ -644,7 +644,7 @@ const RulesSection = () => {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
               <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
@@ -671,13 +671,13 @@ const RulesSection = () => {
           </motion.div>
         </div>
       </section>
-      <section className=" sm:py-7 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+      <section className=" sm:py-7 relative z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, scale: 0.80, translateY:100 }}
+            whileInView={{ opacity: 1, scale: 1 ,translateY:0}}
+            viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
           >
             {/* Terminal Header */}
@@ -693,13 +693,60 @@ const RulesSection = () => {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[11px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> COMPETITION_FORMAT= {'{'}</p>
               <p className='text-yellow-300'>The competition will be held through the HackerRank online platform. The participation is restricted to solo participants only and there will be 3 rounds: <br />
                 <span className='text-amber-500'>●	The First round will involve 5 simple difficulty problem statements having 5 points each.</span>  <br />
                 <span className='text-amber-500'>●	The Second round will involve 2 pattern printing and 2 problem statements having 10 points each.</span> <br />
                 <span className='text-amber-500'>●	The Final round will involve 3 hard difficulty string / array/ DSA based problem statement having 20 points.</span>
+
+              </p>
+              <p className="mb-4">{'}'};</p>
+
+              <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+              <div className="flex">
+                <span className="text-green-500 mr-2">{'>'}</span>
+                <motion.span
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
+                  className="w-1.5 sm:w-2 h-4 sm:h-5 bg-green-500 inline-block align-middle"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      <section className=" sm:py-7 relative mt-4 z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+
+        <div className="w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.80 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+          >
+            {/* Terminal Header */}
+            <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+              <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+                <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+              </div>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+              <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+              <p className="mb-2"><span className="text-blue-400">const</span> GENERAL_RULES= {'{'}</p>
+              <p className='text-yellow-300'>University ID card is mandatory. <br />
+Use of mobile phones is strictly prohibited. <br />
+Internet browsing outside the competition platform is not allowed. <br />
+Any malpractice will lead to immediate disqualification. <br />
+The decision of the judges will be final. <br />
 
               </p>
               <p className="mb-4">{'}'};</p>
@@ -799,7 +846,7 @@ const FaqSection = () => {
             key={i}
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: i * 0.1 }}
             className="glass-panel overflow-hidden rounded-lg border border-green-500/30"
           >
