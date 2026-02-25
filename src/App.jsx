@@ -6,6 +6,7 @@ import Countdown from './components/Countdown';
 import Team from './components/Team';
 import Gallery from './components/Gallery';
 import tech from "./assets/techclub-iic.jpg"
+
 // Fallback for the BWU logo to ensure the code runs here. 
 // Replace this with: import bwu from "./assets/bwulogo.png" in your local project.
 
@@ -571,7 +572,8 @@ const TimelineSection = () => {
 const RulesSection = () => {
   return (
     <>
-      <h1 className='text-5xl text-center font-extrabold text-green-500 '>RULE</h1>
+    <motion.div className='text-5xl text-center font-extrabold text-green-500 tracking-widest relative z-10'> RULE</motion.div>
+     
       <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
