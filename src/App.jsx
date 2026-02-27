@@ -390,6 +390,7 @@ const TiltCard = ({ children, className }) => {
 // --- SECTIONS ---
 
 const HeroSection = () => {
+
   return (
     <section className="relative min-h-[102vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
       <div className="scanline"></div>
@@ -448,9 +449,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 3, type: "spring" }}
           className="px-4"
         >
-          <MagneticButton onClick={() => alert("Registration Initialized...")}>
+          <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
             Register Now
-          </MagneticButton>
+          </MagneticButton></a>
         </motion.div>
 
         {/* Scroll Indicator */}
@@ -942,9 +943,9 @@ export default function App() {
           </div>
 
           <div className="hidden md:block">
-            <button className="interactive px-4 py-2 border border-green-500 text-green-400 font-mono text-sm hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
+           <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border border-green-500 text-green-400 font-mono text-sm hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
               Register
-            </button>
+            </button></a>
           </div>
 
           {/* Mobile Hamburger Toggle */}
