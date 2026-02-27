@@ -424,7 +424,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="mb-8 sm:mb-6 inline-block px-4 py-2 border border-green-500/50 rounded-xl sm:rounded-full bg-green-500/10 text-green-400 font-mono text-[11px] sm:text-sm uppercase tracking-wider shadow-[0_0_15px_rgba(0,255,0,0.2)] max-w-full"
+          className="mb-4 sm:mb-6 inline-block px-4 py-2 border border-green-500/50 rounded-xl sm:rounded-full bg-green-500/10 text-green-400 font-mono text-[11px] sm:text-sm uppercase tracking-wider shadow-[0_0_15px_rgba(0,255,0,0.2)] max-w-full"
         >
           <span className="text-center block leading-relaxed sm:leading-none wrap-break-word">Organize by Brainware university CSS Department</span>
         </motion.div>
@@ -433,13 +433,16 @@ const HeroSection = () => {
         <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 uppercase tracking-tighter text-white leading-[1.2] sm:leading-none flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-y-2 md:gap-x-4 w-full wrap-break-word">
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="Binary">Binary</span>
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="Battleground">Battleground</span>
-          <span className="glitch-text inline-block" data-text="2K26">2K26</span>
+          {/* <span className="glitch-text inline-block" data-text="2K26">2K26</span> */}
+        </h1>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black mb-6 uppercase tracking-tighter text-white leading-[1.2] sm:leading-none flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-y-2 md:gap-x-4 w-full wrap-break-word">
+          <span className="glitch-text inline-block break-all sm:break-normal" data-text="championship">championship</span>
         </h1>
         <div className="h-12 sm:h-8 mb-10 text-5xl sm:text-xl md:text-2xl sm:mt-0 px-4 ">
-          <span className='text-5xl font-bold text-green-500'>13 MARCH</span>
+          <span className='md:text-5xl text-4xl font-bold text-green-500'>13 MARCH 2026</span>
         </div>
 
-        <div className="h-12 sm:h-8 mb-10 text-sm sm:text-xl md:text-2xl mt-4 sm:mt-0 px-4">
+        <div className="h-12 sm:h-8 mb-3 text-sm sm:text-xl md:text-2xl mt-4 sm:mt-0 px-4">
           <TypewriterText text='"Code. Compile. Conquer."' delay={1500} />
         </div>
 
@@ -907,7 +910,7 @@ const Footer = () => {
 
         <div className="text-center pt-6 sm:pt-8 border-t border-green-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs font-mono text-gray-600 gap-y-2">
           <p>&copy; 2026 Bainary Battlegraound. All systems operational.</p>
-          <a href="https://skrijwan.vercel.app/"><p className='text-green-400 hover:text-green-300 hover:underline'> Developed by Rijwan</p></a>
+          <a href="https://skrijwan.vercel.app/" target='_blank'><p className='text-green-400 hover:text-green-300 hover:underline'> Developed by Rijwan</p></a>
           <p className="flex items-center">
             Powered by <ShieldAlert size={12} className="mx-1 text-green-500" /> Brainware University CSS Department
           </p>

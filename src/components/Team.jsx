@@ -138,10 +138,7 @@ const TeamCard = ({ member }) => {
       <div className="flex justify-between items-center mb-6 text-xs">
         <span className="text-[#00ff00]/50 tracking-wider">@{member.handle}</span>
       </div>
-
-      {/* Avatar/Icon Placeholder */}
       
-
       {/* Details */}
       <div>
         <h3 className="text-2xl text-white font-bold tracking-wide mb-1 group-hover:text-[#00ff00] transition-colors">
