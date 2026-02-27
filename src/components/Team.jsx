@@ -16,7 +16,7 @@ const teamMembers = [
   {
     id: 2,
     handle: "CSS",
-    name: "Samrat Kundu",
+    name: "Mr. Samrat Kundu",
     role: "PROGRAMME COORDINATOR",
     status: "ONLINE",
     skills: ["Kali", "Network", "Crypto"],
@@ -27,7 +27,7 @@ const teamMembers = [
   {
     id: 3,
     handle: "CSS",
-    name: "Souvik Bera",
+    name: "Mr. Souvik Bera",
     role: "PROGRAMME COORDINATOR",
     status: "AWAY",
     skills: ["React", "Tailwind", "WebGL"],
