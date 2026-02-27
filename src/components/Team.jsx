@@ -11,7 +11,7 @@ const teamMembers = [
     skills: ["C++", "Architecture", "Cloud"],
     avatar: "AM",
     contact:true,
-    phno:'8483442342'
+    phno:'NA'
   },
   {
     id: 2,
