@@ -4,67 +4,82 @@ import { Terminal, Github, Linkedin, Mail, Cpu } from 'lucide-react';
 const teamMembers = [
   {
     id: 1,
-    handle: "root_admin",
-    name: "Alex Mercer",
-    role: "SYS_ARCHITECT",
+    handle: "CSS",
+    name: "Dr. Jayanta Aich",
+    role: "CONVENER",
     status: "ONLINE",
     skills: ["C++", "Architecture", "Cloud"],
-    avatar: "AM"
+    avatar: "AM",
+    contact:true,
+    phno:'8483442342'
   },
   {
     id: 2,
-    handle: "sec_ops_01",
-    name: "Sarah Connor",
-    role: "PEN_TESTER",
+    handle: "CSS",
+    name: "Samrat Kundu",
+    role: "PROGRAMME COORDINATOR",
     status: "ONLINE",
     skills: ["Kali", "Network", "Crypto"],
-    avatar: "SC"
+    avatar: "SC",
+    contact:true,
+    phno:'+91 8293623023'
   },
   {
     id: 3,
-    handle: "ui_wizard",
-    name: "David Chen",
-    role: "FRONTEND_DEV",
+    handle: "CSS",
+    name: "Souvik Bera",
+    role: "PROGRAMME COORDINATOR",
     status: "AWAY",
     skills: ["React", "Tailwind", "WebGL"],
-    avatar: "DC"
+    avatar: "DC",
+    contact:true,
+    phno:'+91 8327050388'
   },
   {
     id: 4,
-    handle: "data_ghost",
-    name: "Elena Rostova",
-    role: "BACKEND_NINJA",
+    handle: "CSS",
+    name: "Sk Rijwan",
+    role: "DEVELOPER AND VOLUNTEER",
     status: "ONLINE",
     skills: ["Node.js", "PostgreSQL", "Redis"],
-    avatar: "ER"
+    avatar: "ER",
+    contact:false,
+    gl:"https://github.com/skrijwan100",
+    ll:"https://www.linkedin.com/in/sekh-rijwan-026740311/",
+    ml:"mailto:rijwansk329@gmail.com"
+
   },
   {
     id: 5,
-    handle: "data_ghost",
-    name: "Elena Rostova",
-    role: "BACKEND_NINJA",
+    handle: "CSS",
+    name: "Tarapada Garai",
+    role: "DEVELOPER AND VOLUNTEER",
     status: "ONLINE",
     skills: ["Node.js", "PostgreSQL", "Redis"],
-    avatar: "ER"
+    avatar: "ER",
+    contact:false,
+    gl:"https://github.com/codingWithRakesh",
+    ll:"https://www.linkedin.com/in/tarapada-garai-1a9a5a257/",
+    ml:"mailto:tarapadagarai898@gmail.com"
   },
-  {
-    id: 6,
-    handle: "data_ghost",
-    name: "Elena Rostova",
-    role: "BACKEND_NINJA",
-    status: "ONLINE",
-    skills: ["Node.js", "PostgreSQL", "Redis"],
-    avatar: "ER"
-  },
-  {
-    id: 7,
-    handle: "data_ghost",
-    name: "Elena Rostova",
-    role: "BACKEND_NINJA",
-    status: "ONLINE",
-    skills: ["Node.js", "PostgreSQL", "Redis"],
-    avatar: "ER"
-  }
+  // {
+  //   id: 6,
+  //   handle: "CSS",
+  //   name: "Elena Rostova",
+  //   role: "BACKEND_NINJA",
+  //   status: "ONLINE",
+  //   skills: ["Node.js", "PostgreSQL", "Redis"],
+  //   avatar: "ER"
+  // },
+  // {
+  //   id: 7,
+  //   handle: "data_ghost",
+  //   name: "Elena Rostova",
+  //   role: "BACKEND_NINJA",
+  //   status: "ONLINE",
+  //   skills: ["Node.js", "PostgreSQL", "Redis"],
+  //   avatar: "ER"
+  // }
 ];
 
 const Team = () => {
@@ -91,14 +106,14 @@ const Team = () => {
         </div>
 
         {/* Team Grid */}
-        <div className='text-5xl text-center'>
+        {/* <div className='text-5xl text-center'>
           Comming Soon....
-        </div>
-        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        </div> */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {teamMembers.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
-        </div> */}
+        </div>
 
         {/* Footer decoration */}
         <div className="mt-16 flex justify-center text-[#00ff00]/30 text-xs tracking-widest">
@@ -122,54 +137,38 @@ const TeamCard = ({ member }) => {
       {/* Top Bar: Status */}
       <div className="flex justify-between items-center mb-6 text-xs">
         <span className="text-[#00ff00]/50 tracking-wider">@{member.handle}</span>
-        <div className="flex items-center gap-1.5">
-          <div className={`w-1.5 h-1.5 rounded-full ${member.status === 'ONLINE' ? 'bg-[#00ff00] animate-pulse shadow-[0_0_5px_#00ff00]' : 'bg-yellow-500'}`}></div>
-          <span className={`text-[10px] tracking-widest ${member.status === 'ONLINE' ? 'text-[#00ff00]' : 'text-yellow-500'}`}>
-            {member.status}
-          </span>
-        </div>
       </div>
 
       {/* Avatar/Icon Placeholder */}
-      <div className="mb-6 relative w-24 h-24 bg-black border border-[#00ff00]/30 flex items-center justify-center overflow-hidden group-hover:border-[#00ff00] transition-colors">
-        {/* Scanline overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#00ff00]/10 to-transparent -translate-y-full group-hover:animate-[scan_2s_linear_infinite] pointer-events-none"></div>
-        <span className="text-4xl text-white font-bold tracking-widest drop-shadow-[0_0_5px_rgba(255,255,255,0.5)] z-10">
-          {member.avatar}
-        </span>
-      </div>
+      
 
       {/* Details */}
       <div>
-        <h3 className="text-xl text-white font-bold tracking-wide mb-1 group-hover:text-[#00ff00] transition-colors">
+        <h3 className="text-2xl text-white font-bold tracking-wide mb-1 group-hover:text-[#00ff00] transition-colors">
           {member.name}
         </h3>
-        <p className="text-[#00ff00] text-xs tracking-[0.2em] mb-4">
+        <p className="text-[#00ff00] text-[16px] tracking-[0.2em] mb-4">
           [{member.role}]
         </p>
 
         {/* Skills Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {member.skills.map((skill, index) => (
-            <span key={index} className="text-[10px] text-[#00ff00]/70 border border-[#00ff00]/20 px-2 py-1 bg-[#00ff00]/5">
-              {skill}
-            </span>
-          ))}
-        </div>
+       
       </div>
 
       {/* Social Links / Connect */}
-      <div className="mt-auto pt-4 border-t border-[#00ff00]/10 flex gap-4 text-[#00ff00]/50">
-        <a href="#" className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
+      {member.contact?
+      <div>Ph: {member.phno}</div>
+      :<div className="mt-auto pt-4 border-t border-[#00ff00]/10 flex gap-4 text-[#00ff00]/50">
+        <a href={member.gl} target='_blank' className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
           <Github size={18} />
         </a>
-        <a href="#" className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
+        <a href={member.ll} target='_blank' className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
           <Linkedin size={18} />
         </a>
-        <a href="#" className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
+        <a href={member.ml} target='_blank' className="hover:text-[#00ff00] hover:drop-shadow-[0_0_5px_rgba(0,255,0,0.8)] transition-all">
           <Mail size={18} />
         </a>
-      </div>
+      </div>}
 
       {/* Embedded CSS for scanline animation */}
       <style dangerouslySetInnerHTML={{__html: `

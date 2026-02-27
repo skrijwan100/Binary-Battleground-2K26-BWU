@@ -483,8 +483,8 @@ const AboutSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {[
           { icon: <Code2 size={40} />, title: "Competitive Challenges", desc: "Algorithmic puzzles designed to test the limits of your logic." },
-          { icon: <Globe size={40} />, title: "Real-time Leaderboard", desc: "Watch your rank update dynamically as you compile and conquer." },
-          { icon: <Cpu size={40} />, title: "Industry Level", desc: "Problems crafted by senior engineers from top tech conglomerates." },
+          { icon: <Globe size={40} />, title: "HackarRank", desc: "Watch your rank update dynamically as you compile and conquer." },
+          { icon: <Cpu size={40} />, title: "Problem solving", desc: "Problems crafted by senior engineers from top tech conglomerates." },
           { icon: <Trophy size={40} />, title: "Certificates & Prizes", desc: "Massive prize pool, exclusive merch, and verified certificates." }
         ].map((item, i) => (
           <motion.div
@@ -511,7 +511,7 @@ const AboutSection = () => {
 
 const TimelineSection = () => {
   const steps = [
-    { title: "Registration Opens", date: " February 25, 2026", desc: "Secure your spot in the mainframe." },
+    { title: "Registration Opens", date: " February 27, 2026", desc: "Secure your spot in the mainframe." },
     { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
     { title: "1st Round", date: "March 13", desc: "Top 20 player will select for next round." },
     { title: "2nd Round", date: "March 13, 2026", desc: "The great filter. Top 10 advance student." },
@@ -602,12 +602,13 @@ const RulesSection = () => {
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
               <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-norma">
                 <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
-                <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"10 AM - 5 PM"</span>,</li>
-                <li><span className="text-white">Room No:</span> <span className="text-yellow-300">"UV-6 301 & 302"</span>,</li>
+                <li><span className="text-white">Duration:</span> <span className="text-yellow-300">"12 AM - Onwords"</span>,</li>
+                <li><span className="text-white">Room No:</span> <span className="text-yellow-300">"UV-VI 301 & 302"</span>,</li>
                 <li><span className="text-white">Platform:</span> <span className="text-yellow-300">"HackerRank"</span>,</li>
                 <li><span className="text-white">Languages:</span> [<span className="text-yellow-300">"C", "C++", C# ,"Java", "Python", "Javascript"</span>],</li>
-                <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA and MCA in Brainware University</span>,</li>
-                <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">false</span>,</li>
+                <li><span className="text-white">Eligibility:</span> <span className="text-yellow-300">The competition is open to all students of BCA , BCA(MAWT) and MCA in Brainware University</span>,</li>
+                <li><span className="text-white">Registration fee:</span> <span className="text-yellow-300">₹100 Rupee</span>,</li>
+                <li><span className="text-white">Internet_Allowed:</span> <span className="text-red-400">No</span>,</li>
                 <li><span className="text-white">Team_Format:</span> <span className="text-yellow-300">"Individual"</span>,</li>
                 <li><span className="text-white">Plagiarism_Check:</span> <span className="text-red-400">"Strict"</span></li>
               </ul>
@@ -615,7 +616,7 @@ const RulesSection = () => {
 
               <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
               <div className="flex">
-                <span className="text-green-500 mr-2">{'>'}</span>
+                <span className="text-green-500 mr-2">{'>'} Registration fee Related query, contact Mr.Smart Kundu (ph: +91 8293623023) , Mr. Souvik Bera (Ph: 8327050388)</span>
                 <motion.span
                   animate={{ opacity: [0, 1] }}
                   transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
@@ -627,7 +628,6 @@ const RulesSection = () => {
         </div>
       </section>
       <section className="sm:py-7 relative mb-4  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
-
         <div className="w-full max-w-4xl">
           <motion.div
                initial={{ opacity: 0, scale: 0.80 }}
@@ -675,7 +675,7 @@ const RulesSection = () => {
           </motion.div>
         </div>
       </section>
-      <section className=" sm:py-7 relative z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+      {/* <section className=" sm:py-7 relative z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
           <motion.div
@@ -684,7 +684,7 @@ const RulesSection = () => {
             viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
           >
-            {/* Terminal Header */}
+         
             <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
               <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
                 <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
@@ -696,7 +696,7 @@ const RulesSection = () => {
               </div>
             </div>
 
-            {/* Terminal Body */}
+     
             <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> COMPETITION_FORMAT= {'{'}</p>
@@ -720,7 +720,7 @@ const RulesSection = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
       <section className=" sm:py-7 relative mt-4 z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
@@ -784,10 +784,10 @@ const PrizesSection = () => {
       <div className="text-center mb-16 md:mb-24">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-widest"><span className="text-green-500">_</span>Bounty.Pool</h2>
       </div>
-
+       <div className='text-center text-5xl font-bold font-mono'>Comming Soon...</div>
       {/* Changed flex order on mobile so 1st prize shows on top */}
-      <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-6 max-w-5xl mx-auto h-auto md:h-112.5">
-        {/* Mobile logic: Sort array so 1st prize is first visually on mobile, but keep original mapped order for desktop structure */}
+      {/* <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-6 max-w-5xl mx-auto h-auto md:h-112.5">
+
         {prizes.map((prize, i) => (
           <motion.div
             key={i}
@@ -797,7 +797,7 @@ const PrizesSection = () => {
             transition={{ duration: 0.8, delay: prize.delay, type: "spring", bounce: 0.4 }}
             className={`w-full sm:w-3/4 md:w-1/3 relative ${i === 1 ? 'z-20 md:-translate-y-8 order-first md:order-0' : 'z-10 order-0'}`}
           >
-            {/* Rising Energy Particles Effect (CSS simulated) */}
+        
             <div className="absolute inset-x-0 bottom-full h-24 sm:h-32 overflow-hidden pointer-events-none hidden sm:block">
               <motion.div
                 animate={{ y: [0, -100], opacity: [0.8, 0] }}
@@ -808,7 +808,7 @@ const PrizesSection = () => {
             </div>
 
             <TiltCard className={`w-full flex flex-col items-center justify-start pt-6 sm:pt-8 pb-4 bg-linear-to-t ${prize.color} bg-opacity-10 backdrop-blur-xl border border-white/20 relative overflow-hidden ${prize.height}`}>
-              {/* Inner Glow Overlay */}
+            
               <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/80 z-0"></div>
 
               <div className="relative z-10 text-center">
@@ -822,7 +822,7 @@ const PrizesSection = () => {
             </TiltCard>
           </motion.div>
         ))}
-      </div>
+      </div> */}
     </section>
   );
 };
@@ -830,10 +830,10 @@ const PrizesSection = () => {
 const FaqSection = () => {
   const faqs = [
     { q: "Who can participate?", a: "The competition is open to all students of BCA and MCA in Brainware University" },
-    { q: "do i have to bring my laptop", a: "No, collage will Provide you Desktop" },
+    { q: "do i have to bring my laptop", a: "No , collage will Provide you Desktop" },
     { q: "Is team participation allowed?", a: "This is a solo mission. Lone wolves only. Team collaborations will flag the anti-cheat system." },
     { q: "How are the challenges graded?", a: "Automated test cases. Time complexity, space complexity, and optimal logic paths determine your final score." },
-    { q: "Is collage provided food for us ?", a: "No, food will be provided." }
+    { q: "Is collage provided food for us ?", a: "Food will not be provided." }
   ];
 
   const [openIndex, setOpenIndex] = useState(null);
@@ -907,6 +907,7 @@ const Footer = () => {
 
         <div className="text-center pt-6 sm:pt-8 border-t border-green-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs font-mono text-gray-600 gap-y-2">
           <p>&copy; 2026 Bainary Battlegraound. All systems operational.</p>
+          <a href="https://skrijwan.vercel.app/"><p className='text-green-400 hover:text-green-300 hover:underline'> Developed by Rijwan</p></a>
           <p className="flex items-center">
             Powered by <ShieldAlert size={12} className="mx-1 text-green-500" /> Brainware University CSS Department
           </p>
@@ -977,9 +978,9 @@ export default function App() {
                     {item}
                   </a>
                 ))}
-                <button className="mt-4 px-4 py-3 bg-green-500/10 border border-green-500 text-green-400 font-bold uppercase text-sm w-full hover:bg-green-500 hover:text-black transition-colors">
+                <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><button className="mt-4 px-4 py-3 bg-green-500/10 border border-green-500 text-green-400 font-bold uppercase text-sm w-full hover:bg-green-500 hover:text-black transition-colors">
                   Register Now
-                </button>
+                </button></a>
               </div>
             </motion.div>
           )}
