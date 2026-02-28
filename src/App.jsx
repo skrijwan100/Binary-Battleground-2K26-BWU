@@ -394,64 +394,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-[102vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
-      <style>{`
-        .scanline {
-          width: 100%;
-          height: 100px;
-          background: linear-gradient(0deg, rgba(0,255,0,0) 0%, rgba(0,255,0,0.1) 50%, rgba(0,255,0,0) 100%);
-          opacity: 0.5;
-          position: absolute;
-          top: 0;
-          left: 0;
-          animation: scanline 8s linear infinite;
-          pointer-events: none;
-        }
-        @keyframes scanline {
-          0% { top: -100px; }
-          100% { top: 100%; }
-        }
-        .glitch-text {
-          position: relative;
-          color: white;
-        }
-        .glitch-text::before, .glitch-text::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: #050505;
-        }
-        .glitch-text::before {
-          left: 2px;
-          text-shadow: -1px 0 rgba(0,255,0,0.7);
-          clip-path: inset(20% 0 80% 0);
-          animation: glitch-anim-1 2s infinite linear alternate-reverse;
-        }
-        .glitch-text::after {
-          left: -2px;
-          text-shadow: -1px 0 rgba(255,0,255,0.7);
-          clip-path: inset(10% 0 60% 0);
-          animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
-        @keyframes glitch-anim-1 {
-          0% { clip-path: inset(20% 0 80% 0); }
-          20% { clip-path: inset(60% 0 10% 0); }
-          40% { clip-path: inset(40% 0 50% 0); }
-          60% { clip-path: inset(80% 0 5% 0); }
-          80% { clip-path: inset(10% 0 70% 0); }
-          100% { clip-path: inset(30% 0 20% 0); }
-        }
-        @keyframes glitch-anim-2 {
-          0% { clip-path: inset(10% 0 60% 0); }
-          20% { clip-path: inset(30% 0 20% 0); }
-          40% { clip-path: inset(70% 0 10% 0); }
-          60% { clip-path: inset(20% 0 50% 0); }
-          80% { clip-path: inset(50% 0 30% 0); }
-          100% { clip-path: inset(5% 0 80% 0); }
-        }
-      `}</style>
+
       <div className="scanline"></div>
 
       <div className="text-center z-20 max-w-5xl px-4 sm:px-6 relative w-full">
@@ -951,7 +894,7 @@ const PrizesSection = () => {
 
 const FaqSection = () => {
   const faqs = [
-    { q: "Who can participate?", a: "The competition is open to all students of BCA and MCA in Brainware University" },
+    { q: "Who can participate?", a: "The competition is open to all students of BCA , BCA (MAWT) and MCA in Brainware University" },
     { q: "do i have to bring my laptop", a: "No , collage will Provide you Desktop" },
     { q: "Is team participation allowed?", a: "This is a solo mission. Lone wolves only. Team collaborations will flag the anti-cheat system." },
     { q: "How are the challenges graded?", a: "Automated test cases. Time complexity, space complexity, and optimal logic paths determine your final score." },
@@ -974,26 +917,34 @@ const FaqSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false }}
             transition={{ delay: i * 0.1 }}
-            className="glass-panel overflow-hidden rounded-lg border border-green-500/30"
+            className="glass-panel overflow-hidden rounded-lg border border-green-500/30 bg-green-500/5"
           >
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
-              className="w-full text-left px-4 sm:px-6 py-4 flex items-center justify-between focus:outline-none interactive group"
+              className="w-full text-left px-4 sm:px-6 py-4 flex items-center justify-between focus:outline-none interactive group cursor-pointer"
             >
-              <span className="font-bold text-sm sm:text-lg group-hover:text-green-400 transition-colors pr-4">{faq.q}</span>
-              <motion.div animate={{ rotate: openIndex === i ? 180 : 0 }} className="shrink-0">
+              <span className="font-bold text-sm sm:text-lg text-gray-200 group-hover:text-green-400 transition-colors pr-4">{faq.q}</span>
+              <motion.div 
+                animate={{ rotate: openIndex === i ? 180 : 0 }} 
+                transition={{ duration: 0.3 }}
+                className="shrink-0"
+              >
                 <ChevronDown className="text-green-500 w-5 h-5 sm:w-6 sm:h-6" />
               </motion.div>
             </button>
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
               {openIndex === i && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
                   exit={{ height: 0, opacity: 0 }}
-                  className="px-4 sm:px-6 pb-4 text-gray-400 text-xs sm:text-sm md:text-base border-t border-green-500/10 pt-3 sm:pt-4 font-mono"
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden" // Key fix: hide overflow during animation
                 >
-                  {faq.a}
+                  {/* Key fix: Move padding to an inner div so height animates properly from 0 */}
+                  <div className="px-4 sm:px-6 pb-4 text-gray-400 text-xs sm:text-sm md:text-base border-t border-green-500/10 pt-3 sm:pt-4 font-mono">
+                    {faq.a}
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -1029,7 +980,7 @@ const Footer = () => {
 
         <div className="text-center pt-6 sm:pt-8 border-t border-green-500/10 flex flex-col md:flex-row justify-between items-center text-[10px] sm:text-xs font-mono text-gray-600 gap-y-2">
           <p>&copy; 2026 Bainary Battlegraound. All systems operational.</p>
-          <a href="https://skrijwan.vercel.app/" target='_blank'><p className='text-green-400 hover:text-green-300 hover:underline'> Developed by Rijwan</p></a>
+          <a href="https://skrijwan.vercel.app/" target='_blank'><p className='text-green-400 text-sm hover:text-green-300 hover:underline'> Developed by Rijwan</p></a>
           <p className="flex items-center">
             Powered by <ShieldAlert size={12} className="mx-1 text-green-500" /> Brainware University CSS Department
           </p>
@@ -1111,64 +1062,7 @@ export default function App() {
       </nav>
 
       <main>
-        <style>{`
-        .scanline {
-          width: 100%;
-          height: 100px;
-          background: linear-gradient(0deg, rgba(0,255,0,0) 0%, rgba(0,255,0,0.1) 50%, rgba(0,255,0,0) 100%);
-          opacity: 0.5;
-          position: absolute;
-          top: 0;
-          left: 0;
-          animation: scanline 8s linear infinite;
-          pointer-events: none;
-        }
-        @keyframes scanline {
-          0% { top: -100px; }
-          100% { top: 100%; }
-        }
-        .glitch-text {
-          position: relative;
-          color: white;
-        }
-        .glitch-text::before, .glitch-text::after {
-          content: attr(data-text);
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: #050505;
-        }
-        .glitch-text::before {
-          left: 2px;
-          text-shadow: -1px 0 rgba(0,255,0,0.7);
-          clip-path: inset(20% 0 80% 0);
-          animation: glitch-anim-1 2s infinite linear alternate-reverse;
-        }
-        .glitch-text::after {
-          left: -2px;
-          text-shadow: -1px 0 rgba(255,0,255,0.7);
-          clip-path: inset(10% 0 60% 0);
-          animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
-        @keyframes glitch-anim-1 {
-          0% { clip-path: inset(20% 0 80% 0); }
-          20% { clip-path: inset(60% 0 10% 0); }
-          40% { clip-path: inset(40% 0 50% 0); }
-          60% { clip-path: inset(80% 0 5% 0); }
-          80% { clip-path: inset(10% 0 70% 0); }
-          100% { clip-path: inset(30% 0 20% 0); }
-        }
-        @keyframes glitch-anim-2 {
-          0% { clip-path: inset(10% 0 60% 0); }
-          20% { clip-path: inset(30% 0 20% 0); }
-          40% { clip-path: inset(70% 0 10% 0); }
-          60% { clip-path: inset(20% 0 50% 0); }
-          80% { clip-path: inset(50% 0 30% 0); }
-          100% { clip-path: inset(5% 0 80% 0); }
-        }
-      `}</style>
+
         <HeroSection />
         <Countdown />
         <div id='about'>
