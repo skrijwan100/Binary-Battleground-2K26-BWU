@@ -492,8 +492,8 @@ const AboutSection = () => {
         ].map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, z: -100, rotateX: 20, scale:0.80 }}
-            whileInView={{ opacity: 1, z: 0, rotateX: 0 , scale:1}}
+            initial={{ opacity: 0, z: -100, rotateX: 20, scale: 0.80 }}
+            whileInView={{ opacity: 1, z: 0, rotateX: 0, scale: 1 }}
             viewport={{ once: false }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             className="h-full"
@@ -576,13 +576,13 @@ const TimelineSection = () => {
 const RulesSection = () => {
   return (
     <>
-    <motion.div className='text-5xl text-center font-extrabold text-green-500 tracking-widest relative z-10'> RULE</motion.div>
-     
+      <motion.div className='text-5xl text-center font-extrabold text-green-500 tracking-widest relative z-10'> RULE</motion.div>
+
       <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
           <motion.div
-                initial={{ opacity: 0, scale: 0.80 }}
+            initial={{ opacity: 0, scale: 0.80 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
@@ -633,7 +633,7 @@ const RulesSection = () => {
       <section className="sm:py-7 relative mb-4  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
         <div className="w-full max-w-4xl">
           <motion.div
-               initial={{ opacity: 0, scale: 0.80 }}
+            initial={{ opacity: 0, scale: 0.80 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false }}
             className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
@@ -654,14 +654,16 @@ const RulesSection = () => {
             <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
-              <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
+              <p className='text-yellow-300'>: In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
                 The winners of each round will be determined by the leaderboard positions for that round:
+
                 <br />
-                <span className='font-bold text-amber-500'> ●	The top 20 participants from the first round will move on to the second round.</span> <br />
-                <span className='font-bold text-amber-500'>●	The top 10 participants from the second round will move on to the final round.</span> <br />
-                <span className='font-bold text-amber-500'>●	The top 3 participants from the final round will be declared the winners.</span> <br />
+                <span className='text-amber-400'>●	The top 50% participants from the first round will move on to the second round.</span> <br />
+                <span className='text-amber-400'>●	The top 50% participants from the second round will move on to the final round.</span> <br />
+                <span className='text-amber-400'>●	The top 2 participants from the final round will be declared the winners.</span> <br />
 
                 If in any round multiple participants obtain the same number of points, then the tie is broken by the total time taken to submit the last solution resulting in higher points. In extreme cases a short viva conducted by the coordinators may be used to determine the winner in a tiebreaker.
+
               </p>
               <p className="mb-4">{'}'};</p>
 
@@ -678,7 +680,7 @@ const RulesSection = () => {
           </motion.div>
         </div>
       </section>
-      {/* <section className=" sm:py-7 relative z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+      <section className=" sm:py-7 relative z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
           <motion.div
@@ -703,10 +705,12 @@ const RulesSection = () => {
             <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> COMPETITION_FORMAT= {'{'}</p>
-              <p className='text-yellow-300'>The competition will be held through the HackerRank online platform. The participation is restricted to solo participants only and there will be 3 rounds: <br />
-                <span className='text-amber-500'>●	The First round will involve 5 simple difficulty problem statements having 5 points each.</span>  <br />
-                <span className='text-amber-500'>●	The Second round will involve 2 pattern printing and 2 problem statements having 10 points each.</span> <br />
-                <span className='text-amber-500'>●	The Final round will involve 3 hard difficulty string / array/ DSA based problem statement having 20 points.</span>
+              <p className='text-yellow-300'>TThe competition will be held through the Hacker Rank online platform. The participation is restricted to solo participants only and there will be 3 rounds:
+                <br />
+<span className='text-amber-400'>●	The First round will involve 5 problem statements having 5 points each.</span> <br />
+<span className='text-amber-400'>●	The Second round will involve 3 Problems statements having 10 points each.</span> <br />
+<span className='text-amber-400'>●	The Final round will involve 2 problem statement having 20 points.</span> <br />
+
 
               </p>
               <p className="mb-4">{'}'};</p>
@@ -723,7 +727,7 @@ const RulesSection = () => {
             </div>
           </motion.div>
         </div>
-      </section> */}
+      </section>
       <section className=" sm:py-7 relative mt-4 z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
 
         <div className="w-full max-w-4xl">
@@ -750,10 +754,10 @@ const RulesSection = () => {
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> GENERAL_RULES= {'{'}</p>
               <p className='text-yellow-300'>University ID card is mandatory. <br />
-Use of mobile phones is strictly prohibited. <br />
-Internet browsing outside the competition platform is not allowed. <br />
-Any malpractice will lead to immediate disqualification. <br />
-The decision of the judges will be final. <br />
+                Use of mobile phones is strictly prohibited. <br />
+                Internet browsing outside the competition platform is not allowed. <br />
+                Any malpractice will lead to immediate disqualification. <br />
+                The decision of the judges will be final. <br />
 
               </p>
               <p className="mb-4">{'}'};</p>
@@ -777,9 +781,9 @@ The decision of the judges will be final. <br />
 
 const PrizesSection = () => {
   const prizes = [
-    { rank: "2nd", title: "Certificate", amount: "Madal", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
+    { rank: "2nd", title: "Certificate", amount: "Medal", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
     { rank: "1st", title: "Winner Certificate", amount: "Winner Medal", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
-    { rank: "3rd", title: "Certificate", amount: "Madal", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
+    { rank: "3rd", title: "Certificate", amount: "Medal", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
   ];
 
   return (
@@ -787,7 +791,7 @@ const PrizesSection = () => {
       <div className="text-center mb-16 md:mb-24">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-widest"><span className="text-green-500">_</span>Bounty.Pool</h2>
       </div>
-       <div className='text-center text-5xl font-bold font-mono'>Comming Soon...</div>
+      <div className='text-center text-5xl font-bold font-mono'>Comming Soon...</div>
       {/* Changed flex order on mobile so 1st prize shows on top */}
       {/* <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-6 max-w-5xl mx-auto h-auto md:h-112.5">
 
@@ -947,7 +951,7 @@ export default function App() {
           </div>
 
           <div className="hidden md:block">
-           <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
+            <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
               Register
             </button></a>
           </div>
@@ -995,42 +999,42 @@ export default function App() {
         <Countdown />
         <div id='about'>
 
-        <AboutSection />
+          <AboutSection />
         </div>
         <div id='timeline'>
-        <TimelineSection />
+          <TimelineSection />
 
         </div>
         <div id='rules'>
 
-        <RulesSection />
+          <RulesSection />
         </div>
         <div id='prizes'>
 
-        <PrizesSection />
+          <PrizesSection />
         </div>
         <div id='gallery'>
 
-        <Gallery />
+          <Gallery />
         </div>
         <div id='faq'>
 
-        <FaqSection />
+          <FaqSection />
         </div>
         <div id='team'>
-        <Team />
+          <Team />
         </div>
         <div className='flex justify-center relative z-10 mb-5'>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 3, type: "spring" }}
-          className="px-4 relative z-10"
-        >
-          <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
-            Register Now
-          </MagneticButton></a>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 3, type: "spring" }}
+            className="px-4 relative z-10"
+          >
+            <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
+              Register Now
+            </MagneticButton></a>
+          </motion.div>
         </div>
 
       </main>
