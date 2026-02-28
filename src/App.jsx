@@ -630,7 +630,7 @@ const TimelineSection = () => {
   const steps = [
     { title: "Registration Opens", date: " February 27, 2026", desc: "Secure your spot in the mainframe." },
     { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
-    { title: "Reporting Time", date: "11:30 AM - 11:55 AM ", desc: "Come to UV-VI Room no: 301 & 302" },
+    { title: "Reporting Time", date: "March 13, 11:30 AM - 11:55 AM ", desc: "Come to UV-VI Room no: 301 & 302" },
     { title: "1st Round", date: "March 13 12:00 AM ", desc: "Top 50% player will select for next round." },
     { title: "2nd Round", date: "March 13, 2026", desc: "The top 50% participants from the second round will move on to the final round." },
     { title: "Final Round", date: "March 13, 2026", desc: "Select top 3 Depend on total score" },
