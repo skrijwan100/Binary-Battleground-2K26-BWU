@@ -62,15 +62,19 @@ const teamMembers = [
     ll:"https://www.linkedin.com/in/tarapada-garai-1a9a5a257/",
     ml:"mailto:tarapadagarai898@gmail.com"
   },
-  // {
-  //   id: 6,
-  //   handle: "CSS",
-  //   name: "Elena Rostova",
-  //   role: "BACKEND_NINJA",
-  //   status: "ONLINE",
-  //   skills: ["Node.js", "PostgreSQL", "Redis"],
-  //   avatar: "ER"
-  // },
+  {
+    id: 6,
+    handle: "CSS",
+    name: "Sourav Ghosh",
+    role: "VOLUNTEER",
+    status: "ONLINE",
+    skills: ["Node.js", "PostgreSQL", "Redis"],
+    avatar: "ER",
+    contact:false,
+    gl:"https://github.com/souravghosh2004",
+    ll:"https://www.linkedin.com/in/souravghosh2004/",
+    ml:"mailto:placement.sourav@gmail.com"
+  },
   // {
   //   id: 7,
   //   handle: "data_ghost",

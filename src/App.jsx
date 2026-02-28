@@ -619,7 +619,7 @@ const RulesSection = () => {
 
               <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
               <div className="flex">
-                <span className="text-green-500 mr-2">{'>'} Registration fee Related query, contact Mr.Smart Kundu (ph: +91 8293623023) , Mr. Souvik Bera (Ph: 8327050388)</span>
+                <span className="text-green-500 mr-2">{'>'} Registration fee Related query, contact Mr.Samrat Kundu (ph: +91 8293623023) , Mr. Souvik Bera (Ph: 8327050388)</span>
                 <motion.span
                   animate={{ opacity: [0, 1] }}
                   transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
@@ -947,7 +947,7 @@ export default function App() {
           </div>
 
           <div className="hidden md:block">
-           <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border border-green-500 text-green-400 font-mono text-sm hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
+           <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
               Register
             </button></a>
           </div>
@@ -1019,8 +1019,20 @@ export default function App() {
         </div>
         <div id='team'>
         <Team />
-
         </div>
+        <div className='flex justify-center relative z-10 mb-5'>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 3, type: "spring" }}
+          className="px-4 relative z-10"
+        >
+          <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
+            Register Now
+          </MagneticButton></a>
+        </motion.div>
+        </div>
+
       </main>
 
       <Footer />
