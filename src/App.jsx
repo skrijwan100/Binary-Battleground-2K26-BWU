@@ -393,6 +393,8 @@ const HeroSection = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
+    <>
+    
     <section className="relative min-h-[102vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
 
       <div className="scanline"></div>
@@ -468,13 +470,15 @@ const HeroSection = () => {
           <ChevronDown size={32} />
         </motion.div>
       </div>
-        <AnimatePresence>
+        
+    </section>
+    <AnimatePresence>
         {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-99 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={() => setIsModalOpen(false)}
           >
             <motion.div
@@ -523,7 +527,8 @@ const HeroSection = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </>
+    
   );
 };
 
