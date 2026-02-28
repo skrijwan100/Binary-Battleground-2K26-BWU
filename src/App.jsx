@@ -390,9 +390,68 @@ const TiltCard = ({ children, className }) => {
 // --- SECTIONS ---
 
 const HeroSection = () => {
+   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative min-h-[102vh] flex items-center justify-center pt-24 sm:pt-20 overflow-hidden z-10">
+      <style>{`
+        .scanline {
+          width: 100%;
+          height: 100px;
+          background: linear-gradient(0deg, rgba(0,255,0,0) 0%, rgba(0,255,0,0.1) 50%, rgba(0,255,0,0) 100%);
+          opacity: 0.5;
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: scanline 8s linear infinite;
+          pointer-events: none;
+        }
+        @keyframes scanline {
+          0% { top: -100px; }
+          100% { top: 100%; }
+        }
+        .glitch-text {
+          position: relative;
+          color: white;
+        }
+        .glitch-text::before, .glitch-text::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #050505;
+        }
+        .glitch-text::before {
+          left: 2px;
+          text-shadow: -1px 0 rgba(0,255,0,0.7);
+          clip-path: inset(20% 0 80% 0);
+          animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+          left: -2px;
+          text-shadow: -1px 0 rgba(255,0,255,0.7);
+          clip-path: inset(10% 0 60% 0);
+          animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim-1 {
+          0% { clip-path: inset(20% 0 80% 0); }
+          20% { clip-path: inset(60% 0 10% 0); }
+          40% { clip-path: inset(40% 0 50% 0); }
+          60% { clip-path: inset(80% 0 5% 0); }
+          80% { clip-path: inset(10% 0 70% 0); }
+          100% { clip-path: inset(30% 0 20% 0); }
+        }
+        @keyframes glitch-anim-2 {
+          0% { clip-path: inset(10% 0 60% 0); }
+          20% { clip-path: inset(30% 0 20% 0); }
+          40% { clip-path: inset(70% 0 10% 0); }
+          60% { clip-path: inset(20% 0 50% 0); }
+          80% { clip-path: inset(50% 0 30% 0); }
+          100% { clip-path: inset(5% 0 80% 0); }
+        }
+      `}</style>
       <div className="scanline"></div>
 
       <div className="text-center z-20 max-w-5xl px-4 sm:px-6 relative w-full">
@@ -450,13 +509,13 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 3, type: "spring" }}
-          className="px-4"
+          className="px-4 cursor-pointer inline-block w-full sm:w-auto mt-8 sm:mt-4"
+          onClick={() => setIsModalOpen(true)}
         >
-          <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
+          <MagneticButton>
             Register Now
-          </MagneticButton></a>
+          </MagneticButton>
         </motion.div>
-
         {/* Scroll Indicator */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -466,6 +525,61 @@ const HeroSection = () => {
           <ChevronDown size={32} />
         </motion.div>
       </div>
+        <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#0a0a0a] border border-green-500/50 rounded-xl p-6 sm:p-8 max-w-lg w-full shadow-[0_0_30px_rgba(0,255,0,0.15)] text-left relative overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-green-500 to-transparent opacity-70"></div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-green-400 mb-4 uppercase tracking-wider font-mono">
+                Registration Info
+              </h3>
+
+              <div className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 font-mono space-y-4">
+                <p>
+                  Before registering, please complete your payment via <span className="text-green-400 font-bold">CASH</span>.
+                </p>
+                <p className="p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  For payment, kindly contact <span className="text-white font-semibold">Mr. Samrat Kundu</span> at: <br/>
+                  <a href="tel:+918293623023" className="text-green-400 hover:text-green-300 transition-colors inline-flex items-center mt-2 font-bold text-lg">
+                    +91 8293623023
+                  </a>
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-end mt-4">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2.5 rounded-md border border-gray-600 text-gray-400 hover:text-white hover:border-gray-400 hover:bg-gray-800 transition-colors font-mono uppercase text-sm tracking-wider w-full sm:w-auto text-center"
+                >
+                  Close
+                </button>
+                <a
+                  href="https://forms.gle/9wgBrv6Rv9EhszFT6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2.5 rounded-md bg-green-500/20 border border-green-500 text-green-400 hover:bg-green-500 hover:text-black transition-all font-mono uppercase text-sm tracking-wider font-bold w-full sm:w-auto text-center block"
+                >
+                  Continue to Form
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -516,8 +630,9 @@ const TimelineSection = () => {
   const steps = [
     { title: "Registration Opens", date: " February 27, 2026", desc: "Secure your spot in the mainframe." },
     { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
-    { title: "1st Round", date: "March 13", desc: "Top 20 player will select for next round." },
-    { title: "2nd Round", date: "March 13, 2026", desc: "The great filter. Top 10 advance student." },
+    { title: "Reporting Time", date: "11:30 AM - 11:55 AM ", desc: "Come to UV-VI Room no: 301 & 302" },
+    { title: "1st Round", date: "March 13 12:00 AM ", desc: "Top 50% player will select for next round." },
+    { title: "2nd Round", date: "March 13, 2026", desc: "The top 50% participants from the second round will move on to the final round." },
     { title: "Final Round", date: "March 13, 2026", desc: "Select top 3 Depend on total score" },
     { title: "Winner Announcement", date: "March 13, 2026", desc: " Price distribution End closing ceremony" }
   ];
@@ -619,7 +734,7 @@ const RulesSection = () => {
 
               <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
               <div className="flex">
-                <span className="text-green-500 mr-2">{'>'} Registration fee Related query, contact Mr.Samrat Kundu (ph: +91 8293623023) , Mr. Souvik Bera (Ph: 8327050388)</span>
+                <span className="text-green-500 mr-2">{'>'} Registration fee Related query, contact Mr.Samrat Kundu (ph: +91 8293623023) , <br /> Mr. Souvik Bera (Ph: 8327050388)</span>
                 <motion.span
                   animate={{ opacity: [0, 1] }}
                   transition={{ repeat: Infinity, duration: 1, repeatType: "reverse" }}
@@ -654,7 +769,7 @@ const RulesSection = () => {
             <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
-              <p className='text-yellow-300'>: In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
+              <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.
                 The winners of each round will be determined by the leaderboard positions for that round:
 
                 <br />
@@ -781,9 +896,9 @@ const RulesSection = () => {
 
 const PrizesSection = () => {
   const prizes = [
-    { rank: "2nd", title: "Certificate", amount: "Medal", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
-    { rank: "1st", title: "Winner Certificate", amount: "Winner Medal", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
-    { rank: "3rd", title: "Certificate", amount: "Medal", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
+    { rank: "2nd", title: "Certificate", amount: "Trophy", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
+    { rank: "1st", title: "Winner Certificate", amount: "Winner Trophy", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
+    { rank: "All Participants", title: "Participation  Certificate", amount: "", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
   ];
 
   return (
@@ -791,9 +906,9 @@ const PrizesSection = () => {
       <div className="text-center mb-16 md:mb-24">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-widest"><span className="text-green-500">_</span>Bounty.Pool</h2>
       </div>
-      <div className='text-center text-5xl font-bold font-mono'>Comming Soon...</div>
+      {/* <div className='text-center text-5xl font-bold font-mono'>Comming Soon...</div> */}
       {/* Changed flex order on mobile so 1st prize shows on top */}
-      {/* <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-6 max-w-5xl mx-auto h-auto md:h-112.5">
+      <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-10 md:gap-6 max-w-5xl mx-auto h-auto md:h-112.5">
 
         {prizes.map((prize, i) => (
           <motion.div
@@ -823,13 +938,13 @@ const PrizesSection = () => {
                 <h3 className="text-xl sm:text-2xl font-black text-white mb-1 uppercase tracking-widest">{prize.rank}</h3>
                 <p>Prize</p>
                 <p className="text-2xl sm:text-3xl font-bold text-white drop-shadow-md">{prize.amount}</p>
-                <p>&</p>
+                {prize.rank==="All Participants"?"":<p>&</p>}
                 <p className="text-xs sm:text-sm font-mono text-white/80 mb-2 sm:mb-4">{prize.title}</p>
               </div>
             </TiltCard>
           </motion.div>
         ))}
-      </div> */}
+      </div>
     </section>
   );
 };
@@ -926,6 +1041,7 @@ const Footer = () => {
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="bg-[#030303] min-h-screen font-sans selection:bg-green-500 selection:text-black">
@@ -951,9 +1067,9 @@ export default function App() {
           </div>
 
           <div className="hidden md:block">
-            <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank' > <button className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
+            <button onClick={() => setIsModalOpen(true)} className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
               Register
-            </button></a>
+            </button>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -985,9 +1101,9 @@ export default function App() {
                     {item}
                   </a>
                 ))}
-                <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><button className="mt-4 px-4 py-3 bg-green-500/10 border border-green-500 text-green-400 font-bold uppercase text-sm w-full hover:bg-green-500 hover:text-black transition-colors">
+                <button onClick={() => setIsModalOpen(true)} className="mt-4 px-4 py-3 bg-green-500/10 border border-green-500 text-green-400 font-bold uppercase text-sm w-full hover:bg-green-500 hover:text-black transition-colors">
                   Register Now
-                </button></a>
+                </button>
               </div>
             </motion.div>
           )}
@@ -995,6 +1111,64 @@ export default function App() {
       </nav>
 
       <main>
+        <style>{`
+        .scanline {
+          width: 100%;
+          height: 100px;
+          background: linear-gradient(0deg, rgba(0,255,0,0) 0%, rgba(0,255,0,0.1) 50%, rgba(0,255,0,0) 100%);
+          opacity: 0.5;
+          position: absolute;
+          top: 0;
+          left: 0;
+          animation: scanline 8s linear infinite;
+          pointer-events: none;
+        }
+        @keyframes scanline {
+          0% { top: -100px; }
+          100% { top: 100%; }
+        }
+        .glitch-text {
+          position: relative;
+          color: white;
+        }
+        .glitch-text::before, .glitch-text::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #050505;
+        }
+        .glitch-text::before {
+          left: 2px;
+          text-shadow: -1px 0 rgba(0,255,0,0.7);
+          clip-path: inset(20% 0 80% 0);
+          animation: glitch-anim-1 2s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+          left: -2px;
+          text-shadow: -1px 0 rgba(255,0,255,0.7);
+          clip-path: inset(10% 0 60% 0);
+          animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim-1 {
+          0% { clip-path: inset(20% 0 80% 0); }
+          20% { clip-path: inset(60% 0 10% 0); }
+          40% { clip-path: inset(40% 0 50% 0); }
+          60% { clip-path: inset(80% 0 5% 0); }
+          80% { clip-path: inset(10% 0 70% 0); }
+          100% { clip-path: inset(30% 0 20% 0); }
+        }
+        @keyframes glitch-anim-2 {
+          0% { clip-path: inset(10% 0 60% 0); }
+          20% { clip-path: inset(30% 0 20% 0); }
+          40% { clip-path: inset(70% 0 10% 0); }
+          60% { clip-path: inset(20% 0 50% 0); }
+          80% { clip-path: inset(50% 0 30% 0); }
+          100% { clip-path: inset(5% 0 80% 0); }
+        }
+      `}</style>
         <HeroSection />
         <Countdown />
         <div id='about'>
@@ -1025,17 +1199,73 @@ export default function App() {
           <Team />
         </div>
         <div className='flex justify-center relative z-10 mb-5'>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 3, type: "spring" }}
-            className="px-4 relative z-10"
-          >
-            <a href="https://forms.gle/9wgBrv6Rv9EhszFT6" target='_blank'><MagneticButton>
-              Register Now
-            </MagneticButton></a>
-          </motion.div>
+    <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 3, type: "spring" }}
+          className="px-4 cursor-pointer inline-block w-full sm:w-auto mt-8 sm:mt-4"
+          onClick={() => setIsModalOpen(true)}
+        >
+          <MagneticButton>
+            Register Now
+          </MagneticButton>
+        </motion.div>
         </div>
+          <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-[#0a0a0a] border border-green-500/50 rounded-xl p-6 sm:p-8 max-w-lg w-full shadow-[0_0_30px_rgba(0,255,0,0.15)] text-left relative overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-green-500 to-transparent opacity-70"></div>
+
+              <h3 className="text-xl sm:text-2xl font-bold text-green-400 mb-4 uppercase tracking-wider font-mono">
+                Registration Info
+              </h3>
+
+              <div className="text-gray-300 text-sm sm:text-base leading-relaxed mb-8 font-mono space-y-4">
+                <p>
+                  Before registering, please complete your payment via <span className="text-green-400 font-bold">CASH</span>.
+                </p>
+                <p className="p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+                  For payment, kindly contact <span className="text-white font-semibold">Mr. Samrat Kundu</span> at: <br/>
+                  <a href="tel:+918293623023" className="text-green-400 hover:text-green-300 transition-colors inline-flex items-center mt-2 font-bold text-lg">
+                    +91 8293623023
+                  </a>
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-end mt-4">
+                <button
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2.5 rounded-md border border-gray-600 text-gray-400 hover:text-white hover:border-gray-400 hover:bg-gray-800 transition-colors font-mono uppercase text-sm tracking-wider w-full sm:w-auto text-center"
+                >
+                  Close
+                </button>
+                <a
+                  href="https://forms.gle/9wgBrv6Rv9EhszFT6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsModalOpen(false)}
+                  className="px-6 py-2.5 rounded-md bg-green-500/20 border border-green-500 text-green-400 hover:bg-green-500 hover:text-black transition-all font-mono uppercase text-sm tracking-wider font-bold w-full sm:w-auto text-center block"
+                >
+                  Continue to Form
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       </main>
 
