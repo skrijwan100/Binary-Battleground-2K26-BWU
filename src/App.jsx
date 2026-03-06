@@ -663,7 +663,7 @@ const RulesSection = () => {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <div className="p-4 sm:p-6 md:p-8  text-green-400 text-[13px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full font-[JetBrains Mono]">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
               <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-norma">
@@ -714,7 +714,7 @@ const RulesSection = () => {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 sm:p-6 md:p-8 font-mono text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
+            <div className="p-4 sm:p-6 md:p-8 font-[JetBrains Mono] text-green-400 text-[13px] sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_PROGRESSION_SCHEME = {'{'}</p>
               <p className='text-yellow-300'>In every round, the participants of that round can attempt to solve as many of the problem statements as possible, on successful satisfaction of all the test cases the participants will receive all allotted points for that problem statement. In case of partial satisfaction of the test cases, the participants will receive partial points.

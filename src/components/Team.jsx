@@ -16,19 +16,8 @@ const teamMembers = [
   {
     id: 2,
     handle: "CSS",
-    name: "Mr. Samrat Kundu",
-    role: "PROGRAMME COORDINATOR",
-    status: "ONLINE",
-    skills: ["Kali", "Network", "Crypto"],
-    avatar: "SC",
-    contact:true,
-    phno:'+91 8293623023'
-  },
-  {
-    id: 3,
-    handle: "CSS",
     name: "Mr. Souvik Bera",
-    role: "PROGRAMME COORDINATOR",
+    role: "EVENT COORDINATOR",
     status: "AWAY",
     skills: ["React", "Tailwind", "WebGL"],
     avatar: "DC",
@@ -36,10 +25,67 @@ const teamMembers = [
     phno:'+91 8327050388'
   },
   {
+    id: 3,
+    handle: "CSS",
+    name: "Mr. Samrat Kundu",
+    role: "COORDINATOR",
+    status: "ONLINE",
+    skills: ["Kali", "Network", "Crypto"],
+    avatar: "SC",
+    contact:true,
+    phno:'+91 8293623023'
+  },
+  {
+    id: 7,
+    handle: "CSS",
+    name: "Mr. Rahul Bir",
+    role: "COORDINATOR",
+    status: "ONLINE",
+    skills: ["Kali", "Network", "Crypto"],
+    avatar: "SC",
+    contact:true,
+    phno:'+91 8145513011'
+  },
+  {
+    id: 9,
+    handle: "CSS",
+    name: "Mr. Gouranga Bag",
+    role: "COORDINATOR",
+    status: "ONLINE",
+    skills: ["Kali", "Network", "Crypto"],
+    avatar: "SC",
+    contact:true,
+    phno:'+91 8951683619'
+  },
+  {
+    id: 9,
+    handle: "CSS",
+    name: "MRS. Shyamashree Singha",
+    role: "COORDINATOR",
+    status: "ONLINE",
+    skills: ["Kali", "Network", "Crypto"],
+    avatar: "SC",
+    contact:true,
+    phno:'+91 6296381573'
+  },
+  {
+    id: 6,
+    handle: "CSS",
+    name: "Sourav Ghosh",
+    role: "STUDENT LEAD",
+    status: "ONLINE",
+    skills: ["Node.js", "PostgreSQL", "Redis"],
+    avatar: "ER",
+    contact:false,
+    gl:"https://github.com/souravghosh2004",
+    ll:"https://www.linkedin.com/in/souravghosh2004/",
+    ml:"mailto:placement.sourav@gmail.com"
+  },
+  {
     id: 4,
     handle: "CSS",
     name: "Sk Rijwan",
-    role: "DEVELOPER AND VOLUNTEER",
+    role: "STUDENT CO-LEAD",
     status: "ONLINE",
     skills: ["Node.js", "PostgreSQL", "Redis"],
     avatar: "ER",
@@ -53,7 +99,7 @@ const teamMembers = [
     id: 5,
     handle: "CSS",
     name: "Tarapada Garai",
-    role: "DEVELOPER AND VOLUNTEER",
+    role: "STUDENT CO-LEAD",
     status: "ONLINE",
     skills: ["Node.js", "PostgreSQL", "Redis"],
     avatar: "ER",
@@ -62,28 +108,6 @@ const teamMembers = [
     ll:"https://www.linkedin.com/in/tarapada-garai-1a9a5a257/",
     ml:"mailto:tarapadagarai898@gmail.com"
   },
-  {
-    id: 6,
-    handle: "CSS",
-    name: "Sourav Ghosh",
-    role: "VOLUNTEER",
-    status: "ONLINE",
-    skills: ["Node.js", "PostgreSQL", "Redis"],
-    avatar: "ER",
-    contact:false,
-    gl:"https://github.com/souravghosh2004",
-    ll:"https://www.linkedin.com/in/souravghosh2004/",
-    ml:"mailto:placement.sourav@gmail.com"
-  },
-  // {
-  //   id: 7,
-  //   handle: "data_ghost",
-  //   name: "Elena Rostova",
-  //   role: "BACKEND_NINJA",
-  //   status: "ONLINE",
-  //   skills: ["Node.js", "PostgreSQL", "Redis"],
-  //   avatar: "ER"
-  // }
 ];
 
 const Team = () => {
