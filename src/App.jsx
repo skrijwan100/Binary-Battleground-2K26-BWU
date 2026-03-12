@@ -6,7 +6,7 @@ import Countdown from './components/Countdown';
 import Team from './components/Team';
 import Gallery from './components/Gallery';
 import tech from "./assets/techclub-iic.jpg"
-
+import "./App.css"
 // Fallback for the BWU logo to ensure the code runs here. 
 // Replace this with: import bwu from "./assets/bwulogo.png" in your local project.
 
@@ -665,6 +665,81 @@ const RulesSection = () => {
             {/* Terminal Body */}
             <div className="p-4 sm:p-6 md:p-8  text-green-400 text-[13px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full font-[JetBrains Mono]">
               <p className="mb-4 text-gray-500">Initializing environment variables...</p>
+              <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CATEGORY= {'{'}</p>
+              <div className='text-yellow-400'>
+              To ensure fair and balanced participation, the competition will be conducted in two categories
+based on academic batches, as mentioned below: <br />
+<div className='flex items-center justify-center'>
+<table>
+  <thead>
+    <tr>
+      <th>Category 1</th>
+      <th>Category 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BCA (2025 Batch)</td>
+      <td>BCA (2024 Batch)</td>
+    </tr>
+    <tr>
+      <td>BCA MAWT (2025 Batch)</td>
+      <td>BCA MAWT (2024 Batch)</td>
+    </tr>
+    <tr>
+      <td>----</td>
+      <td>BCA (2023 Batch)</td>
+    </tr>
+    <tr>
+      <td>----</td> 
+      <td>MCA (2025 Batch)</td>
+    </tr>
+    <tr>
+      <td>----</td> 
+      <td>MCA (2024 Batch)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div className='text-center text-2xl text-amber-400 font-[JetBrains Mono]'>All the rule are same for each Category</div>
+
+
+              </div>
+
+              <p className="mb-4">{'}'};</p>
+
+              <p className="mb-2 text-gray-500 wrap-break-word whitespace-normal">// Warning: Breach of protocol results in immediate disqualification.</p>
+              
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 sm:py-5 relative  z-10 container mx-auto px-4 sm:px-6 flex   justify-center">
+
+        <div className="w-full max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.80 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false }}
+            className="bg-black/80 rounded-xl overflow-hidden border border-green-500/40 shadow-[0_0_30px_rgba(0,255,0,0.1)] relative"
+          >
+            {/* Terminal Header */}
+            <div className="bg-green-900/30 px-3 py-2 sm:px-4 flex items-center border-b border-green-500/40">
+              <div className="flex space-x-1.5 sm:space-x-2 shrink-0">
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></div>
+                <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></div>
+              </div>
+              <div className="mx-auto text-green-500/70 font-mono text-[10px] sm:text-xs md:text-sm flex items-center overflow-hidden whitespace-nowrap px-2">
+                <Terminal size={14} className="mr-1.5 sm:mr-2 shrink-0" /> root@bainary-battleground:~
+              </div>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="p-4 sm:p-6 md:p-8  text-green-400 text-[13px]  sm:text-sm md:text-base leading-relaxed overflow-x-auto w-full font-[JetBrains Mono]">
+              <p className="mb-4 text-gray-500">Initializing environment variables...</p>
               <p className="mb-2"><span className="text-blue-400">const</span> EVENT_CONFIG = {'{'}</p>
               <ul className="pl-4 sm:pl-6 mb-2 space-y-2 whitespace-nowrap sm:whitespace-norma">
                 <li><span className="text-white">Date:</span> <span className="text-yellow-300">"13 March"</span>,</li>
@@ -844,8 +919,8 @@ const RulesSection = () => {
 
 const PrizesSection = () => {
   const prizes = [
-    { rank: "2nd", title: "Certificate", amount: "Trophy", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
-    { rank: "1st", title: "Winner Certificate", amount: "Winner Trophy", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
+    { rank: "2nd", title: "Certificate", amount: "Prize money", delay: 0.2, height: "h-72", color: "from-gray-300 to-gray-500", glow: "rgba(200,200,200,0.5)" },
+    { rank: "1st", title: "Winner Certificate", amount: "Prize money", delay: 0, height: "h-80", color: "from-yellow-300 to-yellow-600", glow: "rgba(255,215,0,0.6)" },
     { rank: "All Participants", title: "Participation  Certificate", amount: "", delay: 0.4, height: "h-64", color: "from-orange-400 to-orange-700", glow: "rgba(205,127,50,0.5)" }
   ];
 
