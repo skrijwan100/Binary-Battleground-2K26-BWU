@@ -1049,7 +1049,7 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-4 sm:space-x-6">
-            <img className='h-16' src={tech} alt="Tech clud" />
+            <img className='h-24 rounded-full' src={tech} alt="Tech clud" />
             {/* {[Github, Twitter, Linkedin].map((Icon, i) => (
               <a key={i} href="#" className="interactive p-2.5 sm:p-3 rounded-full bg-green-900/20 border border-green-500/30 text-green-500 hover:bg-green-500 hover:text-black hover:shadow-[0_0_15px_#00ff00] transition-all duration-300">
                 <Icon size={18} className="sm:w-5 sm:h-5" />
