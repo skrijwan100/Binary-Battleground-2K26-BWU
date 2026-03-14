@@ -443,7 +443,7 @@ const HeroSection = () => {
           <span className="glitch-text inline-block break-all sm:break-normal" data-text="championship">championship</span>
         </h1>
         <div className="h-12 sm:h-8 mb-10 text-5xl sm:text-xl md:text-2xl sm:mt-0 px-4 ">
-          <span className='md:text-5xl text-4xl font-bold text-green-500'>13 MARCH 2026</span>
+          <span className='md:text-5xl text-4xl font-bold text-green-500'>20 MARCH 2026</span>
         </div>
 
         <div className="h-12 sm:h-8 mb-3 text-sm sm:text-xl md:text-2xl mt-4 sm:mt-0 px-4">
@@ -577,12 +577,12 @@ const AboutSection = () => {
 const TimelineSection = () => {
   const steps = [
     { title: "Registration Opens", date: " February 27, 2026", desc: "Secure your spot in the mainframe." },
-    { title: "Registration Close", date: "March 10, 2026", desc: "Register yourself before you miss the date" },
-    { title: "Reporting Time", date: "March 13, 11:30 AM - 11:55 AM ", desc: "Come to UV-VI Room no: 301 & 302" },
-    { title: "1st Round", date: "March 13 12:00 AM ", desc: "Top 50% player will select for next round." },
-    { title: "2nd Round", date: "March 13, 2026", desc: "The top 50% participants from the second round will move on to the final round." },
-    { title: "Final Round", date: "March 13, 2026", desc: "Select top 3 Depend on total score" },
-    { title: "Winner Announcement", date: "March 13, 2026", desc: " Price distribution End closing ceremony" }
+    { title: "Registration Close", date: "March 18, 2026", desc: "Register yourself before you miss the date" },
+    { title: "Reporting Time", date: "March 20, 11:30 AM - 11:55 AM ", desc: "Come to UV-VI Room no: 301 & 302" },
+    { title: "1st Round", date: "March 20 12:00 AM ", desc: "Top 50% player will select for next round." },
+    { title: "2nd Round", date: "March 20, 2026", desc: "The top 50% participants from the second round will move on to the final round." },
+    { title: "Final Round", date: "March 20, 2026", desc: "Select top 3 Depend on total score" },
+    { title: "Winner Announcement", date: "March 20, 2026", desc: " Price distribution End closing ceremony" }
   ];
 
   return (
