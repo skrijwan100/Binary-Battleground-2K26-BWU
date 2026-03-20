@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Trophy, Terminal, Calendar, ShieldAlert, Cpu, Code2, Globe, Users, Zap, ExternalLink, Github, Twitter, Linkedin, Menu, X } from 'lucide-react';
+import { ChevronDown, Trophy, Terminal, Calendar, ShieldAlert, Cpu, Code2, Globe, Users, Zap, ExternalLink, Github, Twitter, Linkedin, Menu, X, Link } from 'lucide-react';
 import bwu from "./assets/bwulogo.png"
 import Countdown from './components/Countdown';
 import Team from './components/Team';
@@ -454,12 +454,20 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 3, type: "spring" }}
-          className="px-4 cursor-pointer inline-block w-full sm:w-auto mt-8 sm:mt-4"
-          onClick={() => setIsModalOpen(true)}
+          className="px-4 cursor-pointer w-full sm:w-auto mt-8 sm:mt-4 flex gap-4 justify-center"
+          onClick={() => setIsModalOpen(false)}
         >
-          <MagneticButton>
-            Register Now
-          </MagneticButton>
+          <a href="https://binarybattleground.vercel.app/group1" target="_blank" rel="noopener noreferrer">
+            <MagneticButton>
+              Group 1
+            </MagneticButton>
+          </a>
+
+          <a href="https://binarybattleground.vercel.app/group2" target="_blank" rel="noopener noreferrer">
+            <MagneticButton>
+              Group 2
+            </MagneticButton>
+          </a>
         </motion.div>
         {/* Scroll Indicator */}
         <motion.div
@@ -1098,7 +1106,7 @@ export default function App() {
           </div>
 
           <div className="hidden md:block">
-            <button onClick={() => setIsModalOpen(true)} className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
+            <button disabled onClick={() => setIsModalOpen(true)} className="interactive px-4 py-2 border-2 border-green-500 text-green-400 font-mono text-xl hover:bg-green-500 hover:text-black transition-colors rounded-sm shadow-[0_0_10px_rgba(0,255,0,0.1)]">
               Register
             </button>
           </div>
@@ -1180,9 +1188,9 @@ export default function App() {
           className="px-4 cursor-pointer inline-block w-full sm:w-auto mt-8 sm:mt-4"
           onClick={() => setIsModalOpen(true)}
         >
-          <MagneticButton>
+          {/* <MagneticButton>
             Register Now
-          </MagneticButton>
+          </MagneticButton> */}
         </motion.div>
         </div>
           <AnimatePresence>
