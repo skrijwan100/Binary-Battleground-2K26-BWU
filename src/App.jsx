@@ -457,13 +457,13 @@ const HeroSection = () => {
           className="px-4 cursor-pointer w-full sm:w-auto mt-8 sm:mt-4 flex gap-4 justify-center"
           onClick={() => setIsModalOpen(false)}
         >
-          <a href="group1.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://silly-florentine-ff8ab4.netlify.app/" target="_blank" rel="noopener noreferrer">
             <MagneticButton>
               Group 1
             </MagneticButton>
           </a>
 
-          <a href="group2.html" target="_blank" rel="noopener noreferrer">
+          <a href="https://friendly-biscotti-e3a139.netlify.app/" target="_blank" rel="noopener noreferrer">
             <MagneticButton>
               Group 2
             </MagneticButton>
